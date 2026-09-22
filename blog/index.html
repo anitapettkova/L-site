@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="All blog posts and category archives.">
+    <title>Tech Blog | All Posts</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
+
+    <div class="app-shell">
+        <header class="site-header">
+            <a href="/" class="brand">
+                <span>DEV_LOG</span>
+                <span class="brand-badge">v2.0</span>
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/about/">About</a></li>
+                    <li><a href="/blog/">Blog</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main class="container">
+            <h1 class="page-title">Blog Index</h1>
+            <p class="page-subtitle">Browse articles by category or view all published posts.</p>
+
+            <h2 class="section-heading">Categories</h2>
+            <div class="post-grid" style="margin-bottom: 35px;">
+                <a href="/blog/programming/" class="post-card">
+                    <span class="post-title">Programming</span>
+                    <span class="tag prog">EXPLORE &rarr;</span>
+                </a>
+                <a href="/blog/infrastructure/" class="post-card">
+                    <span class="post-title">Infrastructure</span>
+                    <span class="tag infra">EXPLORE &rarr;</span>
+                </a>
+                <a href="/blog/general/" class="post-card">
+                    <span class="post-title">General Tech</span>
+                    <span class="tag general">EXPLORE &rarr;</span>
+                </a>
+            </div>
+
+            <h2 class="section-heading">All Posts</h2>
+            <div class="post-grid">
+                <a href="/blog/infrastructure/" class="post-card">
+                    <div class="post-meta">
+                        <span class="tag infra">INFRASTRUCTURE</span>
+                        <span class="post-title">Setting up Docker Swarm for Home Labs</span>
+                    </div>
+                    <span class="post-date">Sep 22, 2026</span>
+                </a>
+                <a href="/blog/programming/example-post.html" class="post-card">
+                    <div class="post-meta">
+                        <span class="tag prog">PROGRAMMING</span>
+                        <span class="post-title">Understanding Python Generators in Depth</span>
+                    </div>
+                    <span class="post-date">Sep 18, 2026</span>
+                </a>
+            </div>
+        </main>
+
+        <footer>
+            <div>STATUS: Operational</div>
+            <div id="sys-time">SYS_TIME: --:--:--</div>
+        </footer>
+    </div>
+
+    <script src="/assets/js/main.js"></script>
+</body>
+</html>

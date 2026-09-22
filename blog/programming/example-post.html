@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="An in-depth explanation of Python generators and lazy evaluation.">
+    <title>Understanding Python Generators | Tech Blog</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/css/style.css">
+    
+    <!-- Marked.js Markdown Parser -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+<body>
+
+    <div class="app-shell">
+        <header class="site-header">
+            <a href="/" class="brand">
+                <span>DEV_LOG</span>
+                <span class="brand-badge">v2.0</span>
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/about/">About</a></li>
+                    <li><a href="/blog/">Blog</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main class="container">
+            <div style="margin-bottom: 20px;">
+                <a href="/blog/programming/" style="color: var(--text-muted); text-decoration: none; font-size: 0.9rem;">
+                    &larr; Back to Programming
+                </a>
+            </div>
+
+            <article style="max-width: 800px;">
+                <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 15px;">
+                    <span class="tag prog">PROGRAMMING</span>
+                    <span class="post-date">Published on Sep 18, 2026</span>
+                </div>
+
+                <h1 class="page-title" style="font-size: 2rem; margin-bottom: 25px;">
+                    Understanding Python Generators in Depth
+                </h1>
+
+                <!-- Markdown Content Container -->
+                <div id="markdown-content" class="markdown-body">
+                    Loading article...
+                </div>
+            </article>
+        </main>
+
+        <footer>
+            <div>STATUS: Operational</div>
+            <div id="sys-time">SYS_TIME: --:--:--</div>
+        </footer>
+    </div>
+
+    <script src="/assets/js/main.js"></script>
+    <script>
+        fetch('./python-generators.md')
+            .then(response => {
+                if (!response.ok) throw new Error("Markdown file not found");
+                return response.text();
+            })
+            .then(markdownText => {
+                document.getElementById('markdown-content').innerHTML = marked.parse(markdownText);
+            })
+            .catch(err => {
+                document.getElementById('markdown-content').innerHTML = `<p style="color: var(--accent-orange);">Error loading article content.</p>`;
+            });
+    </script>
+</body>
+</html>
