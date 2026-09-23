@@ -1,7 +1,6 @@
 import os
 import markdown
 from os import walk
-from os.path import isfile, join
 
 TEMPLATE = """<!DOCTYPE html>
 <html lang="en">
