@@ -1,20 +1,31 @@
-# Why do I use `Helix` and you should as well
+# Why I Use `Helix` and Why You Should Try It Too
 
-## Intro
-What is Helix? Why does it exist if we already have NeoVim, Emacs, VS Code and so many other more main-stream editors (excluding emacs, no one uses it except Tsoding).
-In this article I will explain my reasoning behind switching from pycharm to neovim and then to helix as my main text editor, so I can hopefully help you find a good reason to move to Helix as well.
+What is Helix? And why does it exist when we already have Neovim, Emacs, VS Code, and countless other editors?
 
-## Body
+I asked myself the same question before making the switch. In this article, I’ll share my journey from PyCharm to Neovim and eventually to Helix, why I left each editor behind, and what made Helix stick as my daily editor.
 
-### Reasoning
-So I started my journey with python a few years back, so naturally I was using PyCharm as a text editor, after all it was the natural choice (**PY**thon / **PY**charm get it?).
-The issue is that the more I started coding and wanting to be more efficient, I no longer liked pycharm, it was bulky and I dare say even bloated, it takes care of so many things for you, which made me feel like I was not learning enough, how to setup my virtual environment, how to install my dependencies, etc.
+## Why Helix?
+- Less configuration, more time spent coding.
+- Powerful features such as LSP, file picking, and global search are built in.
+- Fast, keyboard-driven, and designed to run in the terminal.
+- Selection-first editing provides a different and more intuitive editing workflow.
+- Fewer plugins mean less configuration and maintenance.
+- The trade-off is less customisation compared with Neovim or Emacs.
+
+## From PyCharm to Neovim
+So I started my journey with python a few years back, and naturally I was using PyCharm as a text editor, after all it was the natural choice (**PY**thon / **PY**charm get it?).
+The issue is that the more I started coding and wanting to be more efficient, I no longer liked pycharm, it was bulky and dare I say even bloated, it takes care of so many things for you, which made me feel like I was not learning enough, how to setup my virtual environment, how to install my dependencies, etc.
+
+### My First Attempts at Neovim
 I watched a few youtubers using their terminal-based editors (Tsoding and his emacs was especially inspiring, though I never dared touch this artifact), so I went ahead and installed Neovim.
 I am not going to lie, at first it was very hard, trying to remember all the key combinations, switching between normal and insert modes, so I decided to stick to pycharm.
 Then I got hired at a new place as my first DevOps job and I wanted to be fancy, not like every other person at work who used VS Code, Pycharm or some other mainstream text editor.
-So I decided that I should solder through. I installed NeoVim anew, setup the most basic plugins along with my trusty python LSP -> [ty](http://docs.astral.sh/ty/features/language-server/) and started working on my internship project. I wrote all the 1500 lines of code using only NeoVim and the project actually turned out great, as far as I know, it is still being used in the company to this day.
+So I decided that I should solder through.
+### Giving Neovim a Second Chance
+I installed NeoVim anew, setup the most basic plugins along with my trusty python LSP -> [ty](http://docs.astral.sh/ty/features/language-server/) and started working on my internship project. I wrote all the 1500 lines of code using only NeoVim and the project actually turned out great, as far as I know, it is still being used in the company to this day.
 That all sounds great, and it was for quite some time, but I started to want more, I wanted my NeoVim to look better, to feel better, to have more features, so I started adding new plugins.
 Plugin after plugin my neovim config became a bloated mess, 500+ lines of plugin definitions using [mason](https://github.com/mason-org/mason.nvim). **It was hell**, I could no longer edit anything in my editor's config, the smallest change was breaking the whole config, I tried to split it into separate modules, but it felt impossible, small changes causing Neovim to not open or if it by any coincidence opens, it was completely unusable.
+### When Neovim Became the Problem
 This is when I decided to look elsewhere, I needed an editor that would allow me have most of the things that Neovim provided, but I would not be married to its config.
 It had to be simple, fast and most of the features I needed had to come out of the box. And voilà, I stumbled upon an article about a new editor that was gaining traction called `Helix` and I got instantly hooked.
 I started reading the docs and it sounded like something I would use as my daily editor. I downloaded it and started testing. It had almost everything I needed out of the box, I could search for files, I could look for substrings in files, the keybindings were all making sense in my mind and one of the most important things, I had `Command Palette` with access to all the commands and keybindings, so if I forgot something, I could easily quickly check what its keybind was.
