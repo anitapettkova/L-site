@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Integrating C Code in Your Zig Projects | Dev Log</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
+
+    <div class="app-shell">
+        <header class="site-header">
+            <a href="/" class="brand">
+                <span>DEV_LOG</span>
+                <span class="brand-badge">v2.0</span>
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/about/">About</a></li>
+                    <li><a href="/blog/">Blog</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main class="container">
+            <article class="markdown-body">
+                <h1>Integrating C Code in Your Zig Projects</h1>
+<h1>Intro</h1>
+<p>Why would someone use C in their project? After all, if you are using a more modern low level language like zig, is it necessary to use the stinky old C?<br />
+The answer might surprise you. Some of the most useful code in the world is still written in C, and the good news is that Zig is fully compatible with it.<br />
+Yes you heard me right, you can integrate most C library in your Zig application without any issues. Let's learn how to do this.</p>
+<h1>Body</h1>
+<h2>Importing Simple C Header Files</h2>
+<p>Zig allows us to easily <a href="https://ziglang.org/documentation/0.16.0/#Import-from-C-Header-File">import</a> simple header files. Our best friends here are <a href="https://ziglang.org/documentation/0.16.0/#cImport">cImport</a> and <a href="https://ziglang.org/documentation/0.16.0/#cInclude">cInclude</a>, those two functions are all we need for this example. Here we go, we can import any C header file we have on our system, a good example is <code>stdlib.h</code> and its <code>abs</code> function:</p>
+<pre><code class="language-zig">const std = @import(&quot;std&quot;);
+const Io = std.Io;
+const print = std.debug.print;
+
+const zig_test = @import(&quot;zig_test&quot;);
+
+const c_libs = @cImport({
+    @cInclude(&quot;stdio.h&quot;);
+    @cInclude(&quot;stdlib.h&quot;);
+});
+
+pub fn main(_: std.process.Init) void {
+    const file_name = &quot;test_file.txt&quot;;
+
+    const positive_integer = c_libs.abs(-15);
+    print(&quot;Positive integer via C func: {d}\n&quot;, .{positive_integer});
+
+    const file = c_libs.fopen(file_name, &quot;w&quot;);
+    defer _ = c_libs.fclose(file);
+    const bytes_read = c_libs.fprintf(file, &quot;Some text&quot;);
+
+    print(&quot;We successfully wrote {d} bytes to {s}\n&quot;, .{ bytes_read, file_name });
+}
+
+</code></pre>
+<p>Note that <code>@cImport</code> accepts an expression, so we can pass more than one C header if we want to and we can then import from the same variable. And that is all we need, we can now use any function, variable or macro from the C header files.</p>
+<h2>More Complex Binding</h2>
+<p>Now the above example is really cool, it works great, but what if we want to statically bind our program against a complex, large C library, for example my faviourite <a href="https://www.raylib.com/">raylib</a>. If you are not familiar with it, it is basically a library used for game development, though it can also be used for any GUI app pretty much. (Please do note that there are already Raylib <a href="https://github.com/raylib-zig/raylib-zig">bindings</a> bindings out there, but who needs those?)</p>
+<p>For this more complex example, we need to first clone the Raylib library locally. I always prefer to do it in a local <code>lib</code> directory:</p>
+<pre><code class="language-bash">git clone https://github.com/raysan5/raylib
+</code></pre>
+<p>Now we have the repository locally, but how can we actually bind it to our program? Well, we first need to build Raylib to a static library, we can first look for the static <code>.a</code> file. </p>
+<pre><code class="language-bash">find . -iname &quot;libraylib.a&quot;
+</code></pre>
+<p>As expected the static library is missing. So we can just build it, we can navigate to the <code>src</code> directory in raylib and just run <code>make</code>:</p>
+<pre><code class="language-bash">make  
+</code></pre>
+<p>The output here can vary, but at the end we should see:</p>
+<pre><code class="language-bash">ar rcs ../src/libraylib.a rcore.o rshapes.o rtextures.o rtext.o rglfw.o rmodels.o raudio.o
+raylib static library generated (libraylib.a) in ../src!
+</code></pre>
+<p>Now we can check again for our static library and we should see:</p>
+<pre><code class="language-bash">find . -iname &quot;libraylib.a&quot;
+./src/libraylib.a
+</code></pre>
+<p>That is perfect, we can start linking our static library in our program. We can do that in our <code>build.zig</code> file, we can remove all the default commets from it and above our <code>exe</code> definition, we can create our new module by translating the raylib header file:</p>
+<pre><code class="language-zig">const raylib = b.addTranslateC(.{
+    .root_source_file = b.path(&quot;raylib/src/raylib.h&quot;),
+    .optimize = optimize,
+    .target = target,
+    .link_libc = true,
+});
+</code></pre>
+<p>Great, now in our <code>exe</code> definition we can add our new module:</p>
+<pre><code class="language-bash">    const exe = b.addExecutable(.{
+        .name = &quot;zig_test&quot;,
+        .root_module = b.createModule(.{
+            .root_source_file = b.path(&quot;src/main.zig&quot;),
+
+            .target = target,
+            .optimize = optimize,
+
+            .imports = &amp;.{
+                .{ .name = &quot;zig_test&quot;, .module = mod },
+                .{ .name = &quot;raylib&quot;, .module = raylib.createModule() }, // &lt;--- we name our module and create it from the translated header
+            },
+        }),
+    });
+</code></pre>
+<p>We are almost there, we should now add our statically compiled library right after our <code>exe</code> definition:</p>
+<pre><code class="language-bash">exe.root_module.addObjectFile(b.path(&quot;raylib/src/libraylib.a&quot;));
+</code></pre>
+<p>And our last step would be to bind the OS specific system libraries, we can handle them in a conditional check, we just need to remember to import the <code>builtin</code> module as well:</p>
+<pre><code class="language-zig">const builtin = @import(&quot;builtin&quot;);
+
+if (builtin.target.os.tag.isDarwin()) {
+    exe.root_module.linkFramework(&quot;Cocoa&quot;, .{});
+    exe.root_module.linkFramework(&quot;CoreFoundation&quot;, .{});
+    exe.root_module.linkFramework(&quot;IOKit&quot;, .{});
+    exe.root_module.linkFramework(&quot;CoreVideo&quot;, .{});
+    exe.root_module.linkFramework(&quot;OpenGL&quot;, .{});
+    exe.root_module.linkFramework(&quot;QuartzCore&quot;, .{});
+} else {
+    exe.root_module.linkSystemLibrary(&quot;GL&quot;, .{});
+    exe.root_module.linkSystemLibrary(&quot;X11&quot;, .{});
+    exe.root_module.linkSystemLibrary(&quot;Xrandr&quot;, .{});
+    exe.root_module.linkSystemLibrary(&quot;Xinerama&quot;, .{});
+    exe.root_module.linkSystemLibrary(&quot;Xi&quot;, .{});
+    exe.root_module.linkSystemLibrary(&quot;Xcursor&quot;, .{});
+
+    exe.root_module.linkSystemLibrary(&quot;m&quot;, .{});
+    exe.root_module.linkSystemLibrary(&quot;pthread&quot;, .{});
+    exe.root_module.linkSystemLibrary(&quot;dl&quot;, .{});
+    exe.root_module.linkSystemLibrary(&quot;rt&quot;, .{});
+}
+</code></pre>
+<p>This handles Linux and MacOS and should provide everything that <code>raylib</code> would need. This would be how the <code>build.zig</code> file should look:</p>
+<pre><code class="language-zig">const std = @import(&quot;std&quot;);
+const builtin = @import(&quot;builtin&quot;);
+
+pub fn build(b: *std.Build) void {
+    const target = b.standardTargetOptions(.{});
+
+    const optimize = b.standardOptimizeOption(.{});
+
+    const mod = b.addModule(&quot;zig_test&quot;, .{
+        .root_source_file = b.path(&quot;src/root.zig&quot;),
+        .optimize = optimize,
+        .target = target,
+    });
+
+    const raylib = b.addTranslateC(.{
+        .root_source_file = b.path(&quot;raylib/src/raylib.h&quot;),
+        .optimize = optimize,
+        .target = target,
+        .link_libc = true,
+    });
+
+    const exe = b.addExecutable(.{
+        .name = &quot;zig_test&quot;,
+        .root_module = b.createModule(.{
+            .root_source_file = b.path(&quot;src/main.zig&quot;),
+
+            .target = target,
+            .optimize = optimize,
+
+            .imports = &amp;.{
+                .{ .name = &quot;zig_test&quot;, .module = mod },
+                .{ .name = &quot;raylib&quot;, .module = raylib.createModule() },
+            },
+        }),
+    });
+
+    exe.root_module.addObjectFile(b.path(&quot;raylib/src/libraylib.a&quot;));
+
+    if (builtin.target.os.tag.isDarwin()) {
+        exe.root_module.linkFramework(&quot;Cocoa&quot;, .{});
+        exe.root_module.linkFramework(&quot;CoreFoundation&quot;, .{});
+        exe.root_module.linkFramework(&quot;IOKit&quot;, .{});
+        exe.root_module.linkFramework(&quot;CoreVideo&quot;, .{});
+        exe.root_module.linkFramework(&quot;OpenGL&quot;, .{});
+        exe.root_module.linkFramework(&quot;QuartzCore&quot;, .{});
+    } else {
+        exe.root_module.linkSystemLibrary(&quot;GL&quot;, .{});
+        exe.root_module.linkSystemLibrary(&quot;X11&quot;, .{});
+        exe.root_module.linkSystemLibrary(&quot;Xrandr&quot;, .{});
+        exe.root_module.linkSystemLibrary(&quot;Xinerama&quot;, .{});
+        exe.root_module.linkSystemLibrary(&quot;Xi&quot;, .{});
+        exe.root_module.linkSystemLibrary(&quot;Xcursor&quot;, .{});
+
+        exe.root_module.linkSystemLibrary(&quot;m&quot;, .{});
+        exe.root_module.linkSystemLibrary(&quot;pthread&quot;, .{});
+        exe.root_module.linkSystemLibrary(&quot;dl&quot;, .{});
+        exe.root_module.linkSystemLibrary(&quot;rt&quot;, .{});
+    }
+
+    b.installArtifact(exe);
+
+    const run_step = b.step(&quot;run&quot;, &quot;Run the app&quot;);
+
+    const run_cmd = b.addRunArtifact(exe);
+    run_step.dependOn(&amp;run_cmd.step);
+
+    run_cmd.step.dependOn(b.getInstallStep());
+
+    if (b.args) |args| {
+        run_cmd.addArgs(args);
+    }
+
+    const mod_tests = b.addTest(.{
+        .root_module = mod,
+    });
+
+    const run_mod_tests = b.addRunArtifact(mod_tests);
+
+    const exe_tests = b.addTest(.{
+        .root_module = exe.root_module,
+    });
+
+    const run_exe_tests = b.addRunArtifact(exe_tests);
+
+    const test_step = b.step(&quot;test&quot;, &quot;Run tests&quot;);
+    test_step.dependOn(&amp;run_mod_tests.step);
+    test_step.dependOn(&amp;run_exe_tests.step);
+}
+</code></pre>
+<p>And we are all set now, we can import the module in our <code>main.zig</code> and use it freely. A simple example would be:</p>
+<pre><code class="language-zig">const std = @import(&quot;std&quot;);
+const Io = std.Io;
+const print = std.debug.print;
+
+const zig_test = @import(&quot;zig_test&quot;);
+
+const raylib = @import(&quot;raylib&quot;);
+
+pub fn main(_: std.process.Init) void {
+    const width = 800;
+    const height = 450;
+
+    raylib.InitWindow(width, height, &quot;How To Bind C Libraries&quot;);
+    while (!raylib.WindowShouldClose()) {
+        raylib.BeginDrawing();
+        raylib.ClearBackground(raylib.GRAY);
+
+        raylib.DrawText(&quot;Binding against raylib!&quot;, 190, 200, 20, raylib.WHITE);
+        raylib.EndDrawing();
+    }
+
+    raylib.CloseWindow();
+}
+</code></pre>
+<p>We then compile our program and run it:</p>
+<pre><code class="language-bash">zig build run -Doptimize=ReleaseSafe
+</code></pre>
+<p>And voilà, we have <code>raylib</code> fully bound to our program and we can use the capabilities of the library.</p>
+<h1>Conclusion</h1>
+<p>It is great, right? While zig does not depend in any way on <code>libc</code>, zig can easily interlop with C codebases, allowing developers to implement any C library in the program. In my opinion this is one of the strongest features of the language. If you want to know more about the compatibility of the zig compiler and all its features related to C, you can read more about it <a href="https://ziglang.org/documentation/0.16.0/#C">here</a>.</p>
+<p>Stay tuned for more!</p>
+            </article>
+        </main>
+
+        <footer>
+            <div>STATUS: Operational</div>
+            <div id="sys-time">SYS_TIME: --:--:--</div>
+        </footer>
+    </div>
+
+    <!-- Essential JS Script for dynamic navigation and clock -->
+    <script src="/assets/js/main.js"></script>
+</body>
+</html>
