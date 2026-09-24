@@ -2,11 +2,28 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Blog Post</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Usage | Dev Log</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/assets/css/style.css">
 </head>
 <body>
+
     <div class="app-shell">
+        <header class="site-header">
+            <a href="/" class="brand">
+                <span>DEV_LOG</span>
+                <span class="brand-badge">v2.0</span>
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/about/">About</a></li>
+                    <li><a href="/blog/">Blog</a></li>
+                </ul>
+            </nav>
+        </header>
+
         <main class="container">
             <article class="markdown-body">
                 <p>Generators in Python provide an elegant way to produce iterables without creating and storing entire data structures in memory. They rely on the <code>yield</code> keyword.</p>
@@ -24,6 +41,14 @@ for num in count_up_to(5):
 </code></pre>
             </article>
         </main>
+
+        <footer>
+            <div>STATUS: Operational</div>
+            <div id="sys-time">SYS_TIME: --:--:--</div>
+        </footer>
     </div>
+
+    <!-- Essential JS Script for dynamic navigation and clock -->
+    <script src="/assets/js/main.js"></script>
 </body>
 </html>
