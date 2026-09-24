@@ -7,6 +7,7 @@
     --accent-green: #00ff66;
     --accent-blue: #38bdf8;
     --accent-orange: #fb923c;
+    --accent-yellow: #fffaa0;
     --border-color: #21262d;
     --font-mono: 'Fira Code', monospace;
 }
@@ -168,6 +169,11 @@ main.container {
 .tag.prog { background: rgba(56, 189, 248, 0.15); color: var(--accent-blue); }
 .tag.general { background: rgba(0, 255, 102, 0.15); color: var(--accent-green); }
 
+.tag.zig { background: rgba(255, 146, 88, 0.15); color: var(--accent-orange); }
+.tag.python { background: rgba(56, 189, 52, 0.15); color: var(--accent-blue); }
+.tag.go { background: rgba(155, 255, 102, 0.15); color: var(--accent-green); }
+.tag.steel { background: rgba(155, 158, 137, 0.15); color: var(--accent-yellow); }
+
 .post-title {
     color: var(--text-primary);
     font-size: 1.05rem;
@@ -215,6 +221,8 @@ footer {
 .markdown-body li { margin-bottom: 6px; }
 
 .markdown-body blockquote {
+
+.yellow-body block#FFFACD
     border-left: 3px solid var(--accent-green);
     padding-left: 15px;
     margin: 20px 0;
@@ -237,6 +245,7 @@ footer {
     padding: 2px 6px;
     border-radius: 4px;
     font-family: var(--font-mono);
+    font-family: varyellowfo#FFFACD);
     font-size: 0.9em;
     color: var(--accent-green);
 }

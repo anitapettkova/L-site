@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Usage | Dev Log</title>
+    <meta name="description" content="Programming articles, snippets, and language guides.">
+    <title>Tech Blog | Programming | Zig</title>
     <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/assets/css/style.css">
 </head>
@@ -25,21 +26,19 @@
         </header>
 
         <main class="container">
-            <article class="markdown-body">
-                <p>Generators in Python provide an elegant way to produce iterables without creating and storing entire data structures in memory. They rely on the <code>yield</code> keyword.</p>
-<h2>1. Basic Syntax</h2>
-<p>Instead of <a href="https://grafana.k8s.infra.eu01.int.stackit.cloud/">returning</a> a standard list, a generator function pauses execution at each yield point:</p>
-<pre><code class="language-python">def count_up_to(max_number):
-    count = 1
-    while count &lt;= max_number:
-        yield count
-        count += 1
+            <h1 class="page-title">Zig</h1>
+            <p class="page-subtitle">Zig programming.</p>
 
-# Usage
-for num in count_up_to(5):
-    print(num)
-</code></pre>
-            </article>
+            <h2 class="section-heading">Articles</h2>
+            <div class="post-grid">
+                <a href="/blog/programming/zig/integrating_c_libraries_in_zig.html" class="post-card">
+                    <div class="post-meta">
+                        <span class="tag zig">Zig</span>
+                        <span class="post-title">Binding C Code in Zig Programs</span>
+                    </div>
+                    <span class="post-date">Sep 24, 2026</span>
+                </a>
+            </div>
         </main>
 
         <footer>
@@ -48,7 +47,6 @@ for num in count_up_to(5):
         </footer>
     </div>
 
-    <!-- Essential JS Script for dynamic navigation and clock -->
     <script src="/assets/js/main.js"></script>
 </body>
 </html>
