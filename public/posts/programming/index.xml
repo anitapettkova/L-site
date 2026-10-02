@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+	<channel>
+		<title>Programming on LP&#39;s Blog</title>
+		<link>http://localhost:1313/posts/programming/</link>
+		<description>Recent content in Programming on LP&#39;s Blog</description>
+		<generator>Hugo</generator>
+		<language>en</language>
+		
+		
+		
+		
+			<lastBuildDate>Fri, 25 Sep 2026 00:00:00 +0000</lastBuildDate>
+		
+			<atom:link href="http://localhost:1313/posts/programming/index.xml" rel="self" type="application/rss+xml" />
+			<item>
+				<title>Integrating C Code in Your Zig Projects</title>
+				<link>http://localhost:1313/posts/programming/zig_and_c_interlop/</link>
+				<pubDate>Fri, 25 Sep 2026 00:00:00 +0000</pubDate>
+				<guid>http://localhost:1313/posts/programming/zig_and_c_interlop/</guid>
+				<description>&lt;h1 id=&#34;intro&#34;&gt;Intro&lt;/h1&gt;&#xA;&lt;p&gt;Why would someone use C in their project? After all, if you are using a more modern low level language like zig, is it necessary to use the stinky old C?&#xA;The answer might surprise you. Some of the most useful code in the world is still written in C, and the good news is that Zig is fully compatible with it.&#xA;Yes you heard me right, you can integrate most C library in your Zig application without any issues. Let&amp;rsquo;s learn how to do this.&lt;/p&gt;</description>
+			</item>
+	</channel>
+</rss>

@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+(function(){
+  var d=document.documentElement;
+  var t=localStorage.getItem('theme')||(window.matchMedia('(prefers-color-scheme:light)').matches?'light':'dark');
+  d.setAttribute('data-theme',t);if(sessionStorage.getItem('spectra-loaded'))d.classList.add('spectra-revisit');
+  if(localStorage.getItem('sidebar-collapsed')==='true')d.classList.add('sidebar-collapsed');
+  if(localStorage.getItem('termsView')==='list')d.classList.add('terms-view-list');
+  d.classList.add('js');
+  d.classList.add('scroll-animate');
+})();
+</script><title>Programming | Spectra Demo</title>
+<meta name="description" content="A sci-fi fusion Hugo blog theme">
+<meta name="author" content="Lilko Petkov">
+
+
+<link rel="icon" href="data:," type="image/x-icon">
+
+<link rel="canonical" href="http://localhost:1313/series/programming/">
+
+
+<link rel="alternate" type="application/rss&#43;xml" href="http://localhost:1313/series/programming/index.xml" title="Spectra Demo">
+
+
+<meta property="og:title" content="Programming">
+<meta property="og:description" content="A sci-fi fusion Hugo blog theme">
+<meta property="og:type" content="website">
+<meta property="og:url" content="http://localhost:1313/series/programming/">
+
+<meta property="og:site_name" content="Spectra Demo">
+
+
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Programming">
+<meta name="twitter:description" content="A sci-fi fusion Hugo blog theme">
+
+
+
+
+
+
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen&#43;Maru&#43;Gothic:wght@400;700&amp;family=Outfit:wght@300;400;600;700&amp;family=JetBrains&#43;Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+
+
+
+<link rel="stylesheet" href="/css/main.min.0384ec8e2552f0f88f78bcc2d9340b4268e3455150330f27723c13898614c405.css" integrity="sha256-A4TsjiVS8PiPeLzC2TQLQmjjRVFQMw8ncjwTiYYUxAU=">
+
+
+
+<style>
+  :root {
+    --accent: #4a7de0;
+    --accent-warm: #e8609e;
+    --accent-soft: #a78bfa;
+    
+    
+    
+    --font-display: 'Outfit', sans-serif;
+    --font-body: 'Zen Maru Gothic', 'Noto Sans TC', sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+    
+    
+    --banner-image-text: #fff;
+    
+    --banner-image-gradient: linear-gradient(135deg, #4a7de0, #e8609e);
+    --banner-image-gradient-fill: transparent;
+  }
+</style>
+
+
+
+
+
+
+</head><body
+  data-page-kind="term"
+  data-i18n-copy="Copy"
+  data-i18n-copied="Copied!"
+  data-i18n-code="CODE"
+  data-i18n-light="Light Mode"
+  data-i18n-dark="Dark Mode"
+  data-i18n-prev="Previous"
+  data-i18n-next="Next"
+  data-i18n-toggle-line-numbers="Toggle line numbers"
+  data-i18n-search-hint="Type to search posts"
+  data-i18n-search-no-results="No results found"
+  data-i18n-search-loading="Loading search index...">
+  <a href="#main-content" class="skip-link">Skip to content</a>
+  
+  <noscript>
+    <style>.loading-screen,.welcome-screen,.scan-line,.terms-view-toggle{display:none}.noscript-notice{background:var(--accent);color:#fff;text-align:center;padding:8px 16px;font-size:0.85rem;margin-left:var(--sidebar-width)}@media(max-width:900px){.noscript-notice{margin-left:0}}</style>
+    <div class="noscript-notice">Some features (search, theme toggle, animations) require JavaScript to work.</div>
+  </noscript>
+  <div class="loading-screen" id="loading">
+  <div class="loading-icon"></div>
+  <div class="loading-text">LOADING</div>
+</div>
+
+  <div class="scan-line" id="scanLine"></div>
+  
+  
+<aside class="sidebar" id="sidebar"><div class="sidebar-profile">
+  <div class="avatar">
+    <div class="avatar-inner">
+      
+        L
+      
+    </div>
+  </div>
+  <div class="sidebar-name">Lilko Petkov</div>
+  <div class="sidebar-tagline">// Developer | DevOps | Cloud Engineer</div>
+  
+  <div class="sidebar-bio">Blog posts for new ideas, programming news and concepts, infrastructure and more</div>
+  
+  
+  <div class="profile-social">
+    
+    
+    
+    
+    <a href="https://github.com/LilkoPetkov" title="GitHub" aria-label="GitHub" target="_blank" rel="noopener noreferrer">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+    </a>
+    
+  </div>
+  
+</div>
+<nav class="sidebar-nav">
+  <div class="sidebar-nav-label">Navigation</div>
+  
+  <button id="searchTrigger" data-tooltip="Search" aria-label="Search">
+    <span class="nav-icon"><svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="7.5" cy="7.5" r="5.5"/><line x1="11.5" y1="11.5" x2="16" y2="16"/></svg></span>
+    <span class="nav-text">Search</span>
+  </button>
+  
+  
+    <a href="/" data-tooltip="Home" >
+      <span class="nav-icon">⌂</span>
+      <span class="nav-text">Home</span>
+    </a>
+  
+    <a href="/posts/" data-tooltip="Blog" >
+      <span class="nav-icon">✎</span>
+      <span class="nav-text">Blog</span>
+    </a>
+  
+    <a href="/about" data-tooltip="About" >
+      <span class="nav-icon">◉</span>
+      <span class="nav-text">About</span>
+    </a>
+  
+</nav>
+
+<div class="sidebar-categories">
+  <a href="/posts/" class="sidebar-collapsed-icon" data-tooltip="Categories" aria-label="Categories">
+    <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="6" height="6" rx="1"/><rect x="10" y="2" width="6" height="6" rx="1"/><rect x="2" y="10" width="6" height="6" rx="1"/><rect x="10" y="10" width="6" height="6" rx="1"/></svg>
+  </a>
+  <div class="sidebar-nav-label">Categories</div>
+
+  
+  
+  <a href="/posts/" class="sidebar-category-item">
+    <span class="category-name">All Posts</span>
+    <span class="category-count">2</span>
+  </a>
+  
+
+  
+    
+    
+      
+      
+        
+      
+        
+      
+    
+  
+</div>
+
+
+
+<div class="sidebar-tags">
+  <a href="/tags/" class="sidebar-collapsed-icon" data-tooltip="Tags" aria-label="Tags">
+    <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M1.5 10.6l6.4 6.4a1 1 0 001.4 0l7.2-7.2V2.5a1 1 0 00-1-1h-7.3l-6.7 7.7a1 1 0 000 1.4z"/><circle cx="13" cy="5" r="1.2" fill="currentColor" stroke="none"/></svg>
+  </a>
+  <div class="sidebar-nav-label">Tags</div>
+  <div class="tag-cloud">
+    
+    
+    
+    
+      
+      
+      <a href="/tags/editor/" class="tag warm">Editor</a>
+    
+      
+      
+      <a href="/tags/helix/" class="tag warm">Helix</a>
+    
+      
+      
+      <a href="/tags/programming/" class="tag warm">Programming</a>
+    
+      
+      
+      <a href="/tags/zig/" class="tag warm">Zig</a>
+    
+  </div>
+</div>
+
+
+<div class="sidebar-recent">
+  <div class="sidebar-nav-label">Recent</div>
+  
+  <a href="/posts/helix-editor/my_helix_config/" class="sidebar-recent-item">My `Helix` Setup and Config</a>
+  
+  <a href="/posts/integrating_zig_and_c/integrating_c_libraries_in_zig/" class="sidebar-recent-item">Integrating C Code in Your Zig Projects</a>
+  
+</div>
+
+<div class="sidebar-footer">
+  <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+    <span id="themeIcon">&#9728;</span>
+    <span id="themeLabel">Light Mode</span>
+  </button>
+  
+  <div class="sidebar-copyright">&copy; 2026 Lilko Petkov. All Rights Reserved.</div>
+</div>
+</aside>
+<button class="sidebar-collapse-btn" id="sidebarCollapse" aria-label="Toggle sidebar collapse">
+    <svg class="collapse-icon-collapse" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 2L5 8l6 6"/></svg>
+    <svg class="collapse-icon-expand" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 2l6 6-6 6"/></svg>
+  </button>
+  <button class="sidebar-toggle" id="sidebarToggle" aria-label="Toggle sidebar" aria-expanded="false">&#9776;</button>
+  <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+  <div class="site-wrapper">
+    <div class="mouse-glow" id="mouseGlow" aria-hidden="true"></div>
+
+    <div class="content-area" id="main-content">
+
+<section class="banner" aria-label="Site banner">
+  <div class="banner-bg" id="bannerBg"></div>
+  
+  <div class="banner-particles" aria-hidden="true">
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+  </div>
+  <div class="corner-brackets" aria-hidden="true"><span></span></div>
+  <div class="banner-content">
+    <h1>Welcome to <span>Spectra Demo</span></h1>
+    <p class="banner-subtitle">// blog × code × ideas</p>
+  </div>
+</section>
+
+
+<main class="main-content">
+  <div class="section-label">Programming</div>
+  <h2 class="section-title">Programming</h2>
+
+  
+    <article class="post-card"><div class="post-card-cover"><img src="/zig/integrating_zig_and_c/cover.webp" alt="Integrating C Code in Your Zig Projects" loading="lazy" decoding="async"></div><div class="post-card-body">
+    <div class="post-card-meta">
+      <span>2026-10-01</span>
+      <span>6 min read</span>
+    </div>
+    <h3><a href="/posts/integrating_zig_and_c/integrating_c_libraries_in_zig/">Integrating C Code in Your Zig Projects</a></h3>
+    
+    <p>Get a grasp of the power of Zig and how it can interlop with C code</p>
+    <div class="tag-list">
+    
+    
+    <a href="/tags/programming/" class="tag warm">Programming</a>
+    
+    
+    <a href="/tags/zig/" class="tag">Zig</a>
+</div></div>
+</article>
+
+    
+  
+</main><footer class="content-footer">
+  <div class="footer-deco" aria-hidden="true">
+    <span></span><span></span><span></span>
+  </div>
+  <div>Powered by Hugo × Styled by Spectra</div>
+  <div class="footer-theme-credit">Theme <a href="https://github.com/JoeYang1412/hugo-theme-spectra" target="_blank" rel="noopener noreferrer">Spectra</a> by <a href="https://github.com/JoeYang1412" target="_blank" rel="noopener noreferrer">JoeYang1412</a></div>
+</footer>
+
+    </div>
+  </div>
+
+  <div class="search-overlay" id="searchOverlay" data-index="/index.json" role="dialog" aria-modal="true" aria-label="Search">
+  <div class="search-container">
+    <div class="search-header">
+      <div class="search-input-wrapper">
+        <svg class="search-input-icon" width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="7.5" cy="7.5" r="5.5"/>
+          <line x1="11.5" y1="11.5" x2="16" y2="16"/>
+        </svg>
+        <input type="text" class="search-input" id="searchInput" placeholder="Search posts..." autocomplete="off">
+      </div>
+      <button class="search-close" id="searchClose" aria-label="Close search">
+        <kbd>ESC</kbd>
+      </button>
+    </div>
+    <div class="search-results" id="searchResults">
+      <div class="search-empty" id="searchEmpty">Type to search posts</div>
+    </div>
+  </div>
+</div>
+
+  
+  <button class="scroll-top-btn" id="scrollTopBtn" aria-label="Scroll to top">
+    <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M9 14V4"/>
+      <path d="M4 8l5-5 5 5"/>
+    </svg>
+  </button>
+  
+
+
+<script defer src="/js/loading.min.acdafeb711925c391663ac7d7dd3074073780c52938f11b6a5abd934f09f70ab.js" integrity="sha256-rNr&#43;txGSXDkWY6x9fdMHQHN4DFKTjxG2pavZNPCfcKs="></script>
+
+
+
+<script defer src="/js/theme-toggle.min.83716daf97a6d2e066062b2a8a71c24335d6114e14607f6be277233a4e8972c7.js" integrity="sha256-g3Ftr5em0uBmBisqinHCQzXWEU4UYH9r4ncjOk6Jcsc="></script>
+
+
+<script defer src="/js/sidebar.min.ade9447b99ee20969a805cba4d890453e168868aaa20ebfbeeb9e2c36440e1ad.js" integrity="sha256-relEe5nuIJaagFy6TYkEU&#43;FohoqqIOv77rniw2RA4a0="></script>
+
+
+
+<script defer src="/js/vendor/anime.umd.min.993e590fb09b6d8179bd481d33af2b799d3f3c6df7c13f454201dd48e8a34a85.js" integrity="sha256-mT5ZD7CbbYF5vUgdM68reZ0/PG33wT9FQgHdSOijSoU="></script>
+
+
+
+<script defer src="/js/scroll-animate.min.81b9b338700570aa84f30017cc3400aee2273cb166313dfe415649d386f1c0b8.js" integrity="sha256-gbmzOHAFcKqE8wAXzDQAruInPLFmMT3&#43;QVZJ04bxwLg="></script>
+
+
+
+
+<script defer src="/js/code-copy.min.cd5af80d55d88d9c5690a379c66973ce65a9b205041bb5873546ffa85151363b.js" integrity="sha256-zVr4DVXYjZxWkKN5xmlzzmWpsgUEG7WHNUb/qFFRNjs="></script>
+
+
+
+
+<script defer src="/js/scroll-top.min.6d14274370fca5085f0922608e7b13287b1456432a14d318ae7cfa629dd7bf62.js" integrity="sha256-bRQnQ3D8pQhfCSJgjnsTKHsUVkMqFNMYrnz6Yp3Xv2I="></script>
+
+
+
+
+<script defer src="/js/vendor/fuse.min.e3621b53cb77b4ec306dec41ed95511e6dd80d17fae5a04f3e346d214b9f8f92.js" integrity="sha256-42IbU8t3tOwwbexB7ZVRHm3YDRf65aBPPjRtIUufj5I="></script>
+
+
+<script defer src="/js/search.min.3ab7012086ba1ead467655a0780904d98645597c703f3e434c892a76d536af2c.js" integrity="sha256-OrcBIIa6Hq1GdlWgeAkE2YZFWXxwPz5DTIkqdtU2ryw="></script>
+
+
+
+
+<script defer src="/js/mouse-glow.min.30a00a148ec52c0495e1e4571821a68df31e15cbb78dc77410e33441648d5868.js" integrity="sha256-MKAKFI7FLASV4eRXGCGmjfMeFcu3jcd0EOM0QWSNWGg="></script>
+
+
+
+<script defer src="/js/smart-back.min.9e55a84c8d3665842b19d95cdd540bfcf9dc1c29bb91c9f9db4a20f57046d2b3.js" integrity="sha256-nlWoTI02ZYQrGdlc3VQL/PncHCm7kcn520og9XBG0rM="></script>
+
+
+<script defer src="/js/banner-fallback.min.b18f78a0d3ec4d1c9511355281e9cb9a7068cfa4e6ed7cf14250e1fc1bed5620.js" integrity="sha256-sY94oNPsTRyVETVSgenLmnBoz6Tm7XzxQlDh/BvtViA="></script>
+
+
+<script defer src="/js/cover-fade.min.06b68cc5a1d3c8e318c3d8d92d91ea4ab01fee5400ed3fe135e1a25dd026b232.js" integrity="sha256-BraMxaHTyOMYw9jZLZHqSrAf7lQA7T/hNeGiXdAmsjI="></script>
+
+
+
+<script defer src="/js/banner-parallax.min.25a246af8b73fbf34af50b5517ab74cf05a9d5fb7a0b2eb62f4df80482a998d5.js" integrity="sha256-JaJGr4tz&#43;/NK9QtVF6t0zwWp1ft6Cy62L034BIKpmNU="></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script defer src="/js/terms-view.min.74d07b3be6383e2757b7908e472dea1b6f6cd14ec2c1b485a93264e4e33eacfd.js" integrity="sha256-dNB7O&#43;Y4PidXt5CORy3qG29s0U7CwbSFqTJk5OM&#43;rP0="></script>
+
+
+
+
+</body>
+</html>

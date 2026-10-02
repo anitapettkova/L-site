@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+(function(){
+  var d=document.documentElement;
+  var t=localStorage.getItem('theme')||(window.matchMedia('(prefers-color-scheme:light)').matches?'light':'dark');
+  d.setAttribute('data-theme',t);if(sessionStorage.getItem('spectra-loaded'))d.classList.add('spectra-revisit');
+  if(localStorage.getItem('sidebar-collapsed')==='true')d.classList.add('sidebar-collapsed');
+  if(localStorage.getItem('termsView')==='list')d.classList.add('terms-view-list');
+  d.classList.add('js');
+  d.classList.add('scroll-animate');
+})();
+</script><title>Why I Use Helix and Why You Should Try It Too | Spectra Demo</title>
+<meta name="description" content="Why you need to try Helix as a text editor">
+<meta name="author" content="Lilko Petkov">
+
+
+<link rel="icon" href="data:," type="image/x-icon">
+
+<link rel="canonical" href="http://localhost:1313/posts/helix_editor_setup/my_helix_editor_setup/">
+
+
+
+<meta property="og:title" content="Why I Use Helix and Why You Should Try It Too">
+<meta property="og:description" content="Why you need to try Helix as a text editor">
+<meta property="og:type" content="article">
+<meta property="og:url" content="http://localhost:1313/posts/helix_editor_setup/my_helix_editor_setup/">
+
+<meta property="og:site_name" content="Spectra Demo">
+
+<meta property="article:published_time" content="2025-10-01T00:00:00Z">
+<meta property="article:tag" content="helix"><meta property="article:tag" content="editor">
+
+
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Why I Use Helix and Why You Should Try It Too">
+<meta name="twitter:description" content="Why you need to try Helix as a text editor">
+
+
+
+
+
+
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen&#43;Maru&#43;Gothic:wght@400;700&amp;family=Outfit:wght@300;400;600;700&amp;family=JetBrains&#43;Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+
+
+
+<link rel="stylesheet" href="/css/main.min.0384ec8e2552f0f88f78bcc2d9340b4268e3455150330f27723c13898614c405.css" integrity="sha256-A4TsjiVS8PiPeLzC2TQLQmjjRVFQMw8ncjwTiYYUxAU=">
+
+
+
+<style>
+  :root {
+    --accent: #4a7de0;
+    --accent-warm: #e8609e;
+    --accent-soft: #a78bfa;
+    
+    
+    
+    --font-display: 'Outfit', sans-serif;
+    --font-body: 'Zen Maru Gothic', 'Noto Sans TC', sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+    
+    
+    --banner-image-text: #fff;
+    
+    --banner-image-gradient: linear-gradient(135deg, #4a7de0, #e8609e);
+    --banner-image-gradient-fill: transparent;
+  }
+</style>
+
+
+
+
+
+
+</head><body
+  data-page-kind="page"
+  data-i18n-copy="Copy"
+  data-i18n-copied="Copied!"
+  data-i18n-code="CODE"
+  data-i18n-light="Light Mode"
+  data-i18n-dark="Dark Mode"
+  data-i18n-prev="Previous"
+  data-i18n-next="Next"
+  data-i18n-toggle-line-numbers="Toggle line numbers"
+  data-i18n-search-hint="Type to search posts"
+  data-i18n-search-no-results="No results found"
+  data-i18n-search-loading="Loading search index...">
+  <a href="#main-content" class="skip-link">Skip to content</a>
+  
+  <noscript>
+    <style>.loading-screen,.welcome-screen,.scan-line,.terms-view-toggle{display:none}.noscript-notice{background:var(--accent);color:#fff;text-align:center;padding:8px 16px;font-size:0.85rem;margin-left:var(--sidebar-width)}@media(max-width:900px){.noscript-notice{margin-left:0}}</style>
+    <div class="noscript-notice">Some features (search, theme toggle, animations) require JavaScript to work.</div>
+  </noscript>
+  <div class="loading-screen" id="loading">
+  <div class="loading-icon"></div>
+  <div class="loading-text">LOADING</div>
+</div>
+
+  <div class="scan-line" id="scanLine"></div>
+  
+  
+<aside class="sidebar" id="sidebar"><div class="sidebar-profile">
+  <div class="avatar">
+    <div class="avatar-inner">
+      
+        L
+      
+    </div>
+  </div>
+  <div class="sidebar-name">Lilko Petkov</div>
+  <div class="sidebar-tagline">// Developer | DevOps | Cloud Engineer</div>
+  
+  <div class="sidebar-bio">Blog posts for new ideas, programming news and concepts, infrastructure and more</div>
+  
+  
+  <div class="profile-social">
+    
+    
+    
+    
+    <a href="https://github.com/LilkoPetkov" title="GitHub" aria-label="GitHub" target="_blank" rel="noopener noreferrer">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+    </a>
+    
+  </div>
+  
+</div>
+<nav class="sidebar-nav">
+  <div class="sidebar-nav-label">Navigation</div>
+  
+  <button id="searchTrigger" data-tooltip="Search" aria-label="Search">
+    <span class="nav-icon"><svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="7.5" cy="7.5" r="5.5"/><line x1="11.5" y1="11.5" x2="16" y2="16"/></svg></span>
+    <span class="nav-text">Search</span>
+  </button>
+  
+  
+    <a href="/" data-tooltip="Home" >
+      <span class="nav-icon">⌂</span>
+      <span class="nav-text">Home</span>
+    </a>
+  
+    <a href="/posts/" data-tooltip="Blog" class="active" aria-current="page">
+      <span class="nav-icon">✎</span>
+      <span class="nav-text">Blog</span>
+    </a>
+  
+    <a href="/about" data-tooltip="About" >
+      <span class="nav-icon">◉</span>
+      <span class="nav-text">About</span>
+    </a>
+  
+</nav>
+
+<div class="sidebar-categories">
+  <a href="/posts/" class="sidebar-collapsed-icon" data-tooltip="Categories" aria-label="Categories">
+    <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="6" height="6" rx="1"/><rect x="10" y="2" width="6" height="6" rx="1"/><rect x="2" y="10" width="6" height="6" rx="1"/><rect x="10" y="10" width="6" height="6" rx="1"/></svg>
+  </a>
+  <div class="sidebar-nav-label">Categories<a href="/categories/" class="sidebar-view-all">View All</a></div>
+
+  
+  
+  <a href="/posts/" class="sidebar-category-item">
+    <span class="category-name">All Posts</span>
+    <span class="category-count">3</span>
+  </a>
+  
+
+  
+    
+    
+      
+      
+      
+        
+        <a href="/posts/general/" class="sidebar-category-item">
+          <span class="category-name"></span>
+          <span class="category-count">0</span>
+        </a>
+        
+      
+        
+        <a href="/posts/infrastructure/" class="sidebar-category-item">
+          <span class="category-name"></span>
+          <span class="category-count">0</span>
+        </a>
+        
+      
+        
+        <a href="/posts/programming/" class="sidebar-category-item">
+          <span class="category-name"></span>
+          <span class="category-count">0</span>
+        </a>
+        
+      
+    
+  
+</div>
+
+
+
+<div class="sidebar-tags">
+  <a href="/tags/" class="sidebar-collapsed-icon" data-tooltip="Tags" aria-label="Tags">
+    <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M1.5 10.6l6.4 6.4a1 1 0 001.4 0l7.2-7.2V2.5a1 1 0 00-1-1h-7.3l-6.7 7.7a1 1 0 000 1.4z"/><circle cx="13" cy="5" r="1.2" fill="currentColor" stroke="none"/></svg>
+  </a>
+  <div class="sidebar-nav-label">Tags</div>
+  <div class="tag-cloud">
+    
+    
+    
+    
+      
+      
+      <a href="/tags/editor/" class="tag warm">Editor</a>
+    
+      
+      
+      <a href="/tags/helix/" class="tag warm">Helix</a>
+    
+      
+      
+      <a href="/tags/programming/" class="tag warm">Programming</a>
+    
+      
+      
+      <a href="/tags/zig/" class="tag warm">Zig</a>
+    
+  </div>
+</div>
+
+
+<div class="sidebar-recent">
+  <div class="sidebar-nav-label">Recent</div>
+  
+  <a href="/posts/config_helix/my_helix_config/" class="sidebar-recent-item">My `Helix` Setup and Config</a>
+  
+  <a href="/posts/zig_and_c_interlop/integrating_c_libraries_in_zig/" class="sidebar-recent-item">Integrating C Code in Your Zig Projects</a>
+  
+  <a href="/posts/helix_editor_setup/my_helix_editor_setup/" class="sidebar-recent-item">Why I Use Helix and Why You Should Try It Too</a>
+  
+</div>
+
+<div class="sidebar-footer">
+  <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+    <span id="themeIcon">&#9728;</span>
+    <span id="themeLabel">Light Mode</span>
+  </button>
+  
+  <div class="sidebar-copyright">&copy; 2026 Lilko Petkov. All Rights Reserved.</div>
+</div>
+</aside>
+<button class="sidebar-collapse-btn" id="sidebarCollapse" aria-label="Toggle sidebar collapse">
+    <svg class="collapse-icon-collapse" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 2L5 8l6 6"/></svg>
+    <svg class="collapse-icon-expand" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 2l6 6-6 6"/></svg>
+  </button>
+  <button class="sidebar-toggle" id="sidebarToggle" aria-label="Toggle sidebar" aria-expanded="false">&#9776;</button>
+  <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+  <div class="site-wrapper">
+    <div class="mouse-glow" id="mouseGlow" aria-hidden="true"></div>
+
+    <div class="content-area" id="main-content">
+
+
+<div class="reading-progress" id="readingProgress" aria-hidden="true">
+  <div class="reading-progress-bar" id="readingProgressBar"></div>
+</div>
+
+
+<main class="main-content">
+  <div class="article-header">
+    <a href="/posts/" class="back-link" data-fallback="/posts/" aria-label="Go back">
+      <svg class="back-icon" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3L1 8l5 5"/><line x1="1.5" y1="8" x2="15" y2="8"/></svg>
+      <span class="back-text">Go back</span>
+    </a>
+    <div class="section-label">Blog</div>
+    <h1>Why I Use Helix and Why You Should Try It Too</h1><div class="article-meta">
+  <span>2025-10-01</span>
+  <span>6 min read</span>
+</div><div class="tag-list article-tags">
+    
+    
+    <a href="/tags/helix/" class="tag warm">Helix</a>
+    
+    
+    <a href="/tags/editor/" class="tag">Editor</a>
+</div><aside class="series-nav" aria-label="Series">
+      <div class="series-header">
+        <span class="series-label">Series</span>
+        <span class="series-title">Helix</span>
+        <span class="series-count">1/2</span>
+      </div>
+      <details class="series-list-toggle">
+        <summary>View all posts in this series</summary>
+        <div class="series-list-content">
+        <ol class="series-list" role="list"><li class="series-current">
+            <span class="series-number" aria-hidden="true">1.</span>
+            
+              <span>Why I Use Helix and Why You Should Try It Too</span>
+            
+          </li><li>
+            <span class="series-number" aria-hidden="true">2.</span>
+            
+              <a href="/posts/config_helix/my_helix_config/">My `Helix` Setup and Config</a>
+            
+          </li></ol>
+        </div>
+      </details>
+    </aside></div>
+
+  <div class="single-layout">
+    
+    
+    
+    <aside class="toc-sidebar" aria-label="Table of Contents">
+      <div class="toc-title">
+        <div class="sidebar-nav-label">Contents</div>
+      </div>
+      <nav class="toc-nav">
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#why-helix">Why Helix?</a></li>
+    <li><a href="#from-pycharm-to-neovim">From PyCharm to Neovim</a>
+      <ul>
+        <li><a href="#my-first-attempts-at-neovim">My First Attempts at Neovim</a></li>
+        <li><a href="#giving-neovim-a-second-chance">Giving Neovim a Second Chance</a></li>
+        <li><a href="#when-neovim-became-the-problem">When Neovim Became the Problem</a></li>
+        <li><a href="#discovering-helix">Discovering Helix</a></li>
+      </ul>
+    </li>
+    <li><a href="#what-helix-does-differently">What Helix Does Differently</a>
+      <ul>
+        <li><a href="#selection-first-editing">Selection-First Editing</a></li>
+      </ul>
+    </li>
+    <li><a href="#the-trade-offs">The Trade-offs</a>
+      <ul>
+        <li><a href="#customisations">Customisations</a></li>
+      </ul>
+    </li>
+    <li><a href="#what-you-get-out-of-the-box">What You Get Out of the Box</a>
+      <ul>
+        <li><a href="#command-palette">Command Palette</a></li>
+        <li><a href="#file-picker">File Picker</a></li>
+        <li><a href="#global-search">Global Search</a></li>
+        <li><a href="#yanking-to-clipboard">Yanking to Clipboard</a></li>
+        <li><a href="#changed-file-picker">Changed File Picker</a></li>
+        <li><a href="#window-splitting">Window Splitting</a></li>
+      </ul>
+    </li>
+    <li><a href="#conclusion">Conclusion</a></li>
+  </ul>
+</nav>
+      </nav>
+    </aside>
+
+    
+    <button class="toc-float-toggle" id="tocFloatToggle" aria-label="Toggle table of contents" aria-expanded="false">
+      <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><line x1="6" y1="4" x2="15" y2="4"/><line x1="6" y1="9" x2="15" y2="9"/><line x1="6" y1="14" x2="15" y2="14"/><circle cx="3" cy="4" r="1" fill="currentColor" stroke="none"/><circle cx="3" cy="9" r="1" fill="currentColor" stroke="none"/><circle cx="3" cy="14" r="1" fill="currentColor" stroke="none"/></svg>
+    </button>
+    <div class="toc-float-panel" id="tocFloatPanel">
+      <div class="toc-float-header">
+        <div class="sidebar-nav-label">Contents</div>
+        <button class="toc-float-close" id="tocFloatClose" aria-label="Close table of contents">&times;</button>
+      </div>
+      <nav class="toc-nav">
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#why-helix">Why Helix?</a></li>
+    <li><a href="#from-pycharm-to-neovim">From PyCharm to Neovim</a>
+      <ul>
+        <li><a href="#my-first-attempts-at-neovim">My First Attempts at Neovim</a></li>
+        <li><a href="#giving-neovim-a-second-chance">Giving Neovim a Second Chance</a></li>
+        <li><a href="#when-neovim-became-the-problem">When Neovim Became the Problem</a></li>
+        <li><a href="#discovering-helix">Discovering Helix</a></li>
+      </ul>
+    </li>
+    <li><a href="#what-helix-does-differently">What Helix Does Differently</a>
+      <ul>
+        <li><a href="#selection-first-editing">Selection-First Editing</a></li>
+      </ul>
+    </li>
+    <li><a href="#the-trade-offs">The Trade-offs</a>
+      <ul>
+        <li><a href="#customisations">Customisations</a></li>
+      </ul>
+    </li>
+    <li><a href="#what-you-get-out-of-the-box">What You Get Out of the Box</a>
+      <ul>
+        <li><a href="#command-palette">Command Palette</a></li>
+        <li><a href="#file-picker">File Picker</a></li>
+        <li><a href="#global-search">Global Search</a></li>
+        <li><a href="#yanking-to-clipboard">Yanking to Clipboard</a></li>
+        <li><a href="#changed-file-picker">Changed File Picker</a></li>
+        <li><a href="#window-splitting">Window Splitting</a></li>
+      </ul>
+    </li>
+    <li><a href="#conclusion">Conclusion</a></li>
+  </ul>
+</nav>
+      </nav>
+      <a href="/posts/" class="back-link" data-fallback="/posts/" aria-label="Go back">
+        <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3L1 8l5 5"/><line x1="1.5" y1="8" x2="15" y2="8"/></svg>
+        Go back
+      </a>
+    </div>
+    <div class="toc-float-overlay" id="tocFloatOverlay"></div>
+    
+
+    <article class="article-content">
+      <p>What is Helix? And why does it exist when we already have Neovim, Emacs, VS Code, and countless other editors?</p>
+<p>I asked myself the same question before making the switch. In this article, I’ll share my journey from PyCharm to Neovim and eventually to Helix, why I left each editor behind, and what made Helix stick as my daily editor.</p>
+<h2 id="why-helix">Why Helix?</h2>
+<ul>
+<li>Less configuration, more time spent coding.</li>
+<li>Powerful features such as LSP, file picking, and global search are built in.</li>
+<li>Fast, keyboard-driven, and designed to run in the terminal.</li>
+<li>Selection-first editing provides a different and more intuitive editing workflow.</li>
+<li>Fewer plugins mean less configuration and maintenance.</li>
+<li>The trade-off is less customisation compared with Neovim or Emacs.</li>
+</ul>
+<h2 id="from-pycharm-to-neovim">From PyCharm to Neovim</h2>
+<p>I started my journey with Python a few years back, and naturally, I was using PyCharm as my text editor. After all, it was the natural choice (PYthon / PYcharm, get it?).</p>
+<p>The issue was that the more I started coding and looking for ways to become more efficient, the less I liked PyCharm. It was bulky and, dare I say, even bloated. It took care of so many things for me that I started feeling like I wasn&rsquo;t learning enough about what was actually happening under the hood: how to set up my virtual environment, how to install my dependencies, etc.</p>
+<h3 id="my-first-attempts-at-neovim">My First Attempts at Neovim</h3>
+<p>I watched a few YouTubers using their terminal-based editors (Tsoding and his Emacs were especially inspiring, though I never dared to touch this artifact), so I went ahead and installed Neovim.</p>
+<p>I&rsquo;m not going to lie: at first, it was very hard. Trying to remember all the key combinations and constantly switching between normal and insert modes was overwhelming, so I decided to stick with PyCharm.</p>
+<p>Then I got hired at a new place for my first DevOps job, and I wanted to be fancy. I didn&rsquo;t want to be like everyone else at work using VS Code, PyCharm, or some other mainstream text editor.</p>
+<p>So I decided to soldier through.</p>
+<h3 id="giving-neovim-a-second-chance">Giving Neovim a Second Chance</h3>
+<p>I installed Neovim again, set up the most basic plugins along with my trusty Python LSP, <a href="http://docs.astral.sh/ty/features/language-server/">ty</a>, and started working on my internship project.</p>
+<p>I wrote all 1,500 lines of code using only Neovim, and the project actually turned out great. As far as I know, it is still being used by the company to this day.</p>
+<h3 id="when-neovim-became-the-problem">When Neovim Became the Problem</h3>
+<p>That all sounds great, and it was for quite some time. But eventually, I started wanting more. I wanted my Neovim to look better, feel better, and have more features, so I started adding plugins.</p>
+<p>Plugin after plugin, my Neovim config became a bloated mess: 500+ lines of plugin definitions using <a href="https://github.com/mason-org/mason.nvim">Mason</a>.</p>
+<p><strong>It was hell.</strong></p>
+<p>I could no longer comfortably edit anything in my editor&rsquo;s config. The smallest change would break the whole thing. I tried splitting it into separate modules, but it felt impossible. Small changes would cause Neovim to either not open at all or, if it did open, be completely unusable.</p>
+<h3 id="discovering-helix">Discovering Helix</h3>
+<p>This is when I decided to look elsewhere. I needed an editor that would give me most of what Neovim provided, without making me feel married to its configuration.</p>
+<p>It had to be simple, fast, and have most of the features I needed built in.</p>
+<p>And voilà, I stumbled upon an article about a new editor that was gaining traction called <code>Helix</code>, and I was instantly hooked.</p>
+<p>I started reading the docs, and it sounded like something I could actually use as my daily editor. I downloaded it and started testing.</p>
+<p>It had almost everything I needed out of the box. I could search for files, look for substrings across files, and the keybindings actually made sense to me. And, perhaps most importantly, I had the <code>Command Palette</code>, with access to all the available commands and keybindings. If I forgot how to do something, I could simply look it up instead of having to remember everything.</p>
+<h2 id="what-helix-does-differently">What Helix Does Differently</h2>
+<h3 id="selection-first-editing">Selection-First Editing</h3>
+<p>Of course, Helix is not the cure for everything. Switching from Neovim&rsquo;s action-first approach to Helix&rsquo;s selection-first approach can be difficult to get used to, especially if you&rsquo;re already an experienced Neovim user.</p>
+<ul>
+<li><strong>You want to delete the next word?</strong></li>
+</ul>
+<p>You press <code>d + w</code> and get a character deleted while the rest is highlighted. (Oh, how many times I did that before I got used to it.)</p>
+<ul>
+<li><strong>You want to delete the below N lines?</strong></li>
+</ul>
+<p>You can&rsquo;t just press <code>d + 4 + j</code>, you need to first mark the lines and then delete them (<code>4 + x + d</code>).</p>
+<p>This is the main thing with Helix: you mark the target text first and then perform the action on it. It can be frustrating for experienced Neovim users at first, but after a while, you get used to it (I know I did).</p>
+<p>But for new users, it can actually be a lot more intuitive than having to learn Vim motions.</p>
+<h2 id="the-trade-offs">The Trade-offs</h2>
+<h3 id="customisations">Customisations</h3>
+<p>Is Helix customisable?</p>
+<p>That is the question, right? Well, yes, but not to the same extent as Neovim or Emacs.</p>
+<p><code>Helix</code> comes with a ton of features included in its default setup, pretty much everything a new user would need. However, you are more limited when it comes to customisation, and the lack of a plugin system doesn&rsquo;t help.</p>
+<p>Still, there are some ways to extend the capabilities of the editor:</p>
+<ul>
+<li>A lot of builtin functions like: <code>:insert-output</code>, which can allow to use CLI applications like internal plugins, a great example of this is the Yazi <a href="https://github.com/sxyazi/yazi/pull/2461">integration</a> in Helix that sxyazi created (and this approach can work with my other CLIs).</li>
+<li>I won&rsquo;t get into too much detail about this since it hasn&rsquo;t been released yet, but the plugin system looks promising so far. It can be tested from Matthew Paras&rsquo; repository on the <a href="https://github.com/mattwparas/helix/tree/steel-event-system">steel-event-system</a> branch.</li>
+<li>There are also plenty of other customisation options provided by <code>Helix itself</code>, which you can find in the <a href="https://docs.helix-editor.com/configuration.html">configuration documentation</a>.</li>
+</ul>
+<h2 id="what-you-get-out-of-the-box">What You Get Out of the Box</h2>
+<p>While <code>Helix</code> has a lot of features included by default, here are some of the main ones that might be of interest to a new user:</p>
+<h3 id="command-palette">Command Palette</h3>
+<p><code>leader + ?</code> - Command Palette, including all the available commands, keybinds and functions</p>
+<h3 id="file-picker">File Picker</h3>
+<p><code>leader + f</code> - File Picker out of the box, something other editors don&rsquo;t have</p>
+<h3 id="global-search">Global Search</h3>
+<p><code>leader + /</code> - Global Grep-like Search with support for regular expressions</p>
+<h3 id="yanking-to-clipboard">Yanking to Clipboard</h3>
+<p><code>leader + space + y</code></p>
+<h3 id="changed-file-picker">Changed File Picker</h3>
+<p><code>leader + g</code></p>
+<h3 id="window-splitting">Window Splitting</h3>
+<p><code>ctrl + w + v</code> - Vertical split</p>
+<p><code>ctrl + w + s</code> - Horizontal split</p>
+<p>And many more cool features, all coming out of the box!</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>So, should you switch to Helix like I did? Well, it depends entirely on your preferences. If you want fine-grained control over everything in your editor, Helix might not be for you.</p>
+<p>But if you want a good balance between customisation options, speed, and out-of-the-box features, or you just want to try a new editor, I can wholeheartedly recommend giving Helix a try!</p>
+<p>P.S. I will soon create another post about my Helix config, the features I mainly use, custom keybindings, and many more things. Stay tuned!</p>
+
+    </article>
+  </div>
+
+  <section class="related-posts" aria-label="Related Posts">
+  <div class="section-label">Related Posts</div>
+  <div class="related-grid"><a href="/posts/config_helix/my_helix_config/" class="related-card"><div class="related-card-body">
+        <span class="related-card-date">2026-10-02</span>
+        <span class="related-card-title">My `Helix` Setup and Config</span>
+      </div>
+    </a></div>
+</section><div class="share-buttons" aria-label="Share">
+  <span class="share-label">Share</span>
+  <div class="share-links">
+    
+    
+    <a href="https://twitter.com/intent/tweet?text=Why&#43;I&#43;Use&#43;Helix&#43;and&#43;Why&#43;You&#43;Should&#43;Try&#43;It&#43;Too&amp;url=http%3A%2F%2Flocalhost%3A1313%2Fposts%2Fhelix_editor_setup%2Fmy_helix_editor_setup%2F" target="_blank" rel="noopener noreferrer" class="share-btn share-twitter" aria-label="Share on Twitter">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+    </a>
+    
+    
+    
+    <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A1313%2Fposts%2Fhelix_editor_setup%2Fmy_helix_editor_setup%2F" target="_blank" rel="noopener noreferrer" class="share-btn share-facebook" aria-label="Share on Facebook">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+    </a>
+    
+    
+    
+    <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http%3A%2F%2Flocalhost%3A1313%2Fposts%2Fhelix_editor_setup%2Fmy_helix_editor_setup%2F&amp;title=Why&#43;I&#43;Use&#43;Helix&#43;and&#43;Why&#43;You&#43;Should&#43;Try&#43;It&#43;Too&amp;summary=What&#43;is&#43;Helix%3F&#43;And&#43;why&#43;does&#43;it&#43;exist&#43;when&#43;we&#43;already&#43;have&#43;Neovim%2C&#43;Emacs%2C&#43;VS&#43;Code%2C&#43;and&#43;countless&#43;other&#43;editors%3F%0AI&#43;asked&#43;%E2%80%A6" target="_blank" rel="noopener noreferrer" class="share-btn share-linkedin" aria-label="Share on LinkedIn">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+    </a>
+    
+    
+    <button class="share-btn share-copy" aria-label="Copy link" data-url="http://localhost:1313/posts/helix_editor_setup/my_helix_editor_setup/">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg>
+    </button>
+  </div>
+</div>
+
+
+  <nav class="post-nav" aria-label="Post navigation">
+    
+    
+    <a href="/posts/zig_and_c_interlop/integrating_c_libraries_in_zig/" class="post-nav-link post-nav-next">
+      <span class="post-nav-label">Next &rarr;</span>
+      <span class="post-nav-title">Integrating C Code in Your Zig Projects</span>
+    </a>
+    
+  </nav>
+</main><footer class="content-footer">
+  <div class="footer-deco" aria-hidden="true">
+    <span></span><span></span><span></span>
+  </div>
+  <div>Powered by Hugo × Styled by Spectra</div>
+  <div class="footer-theme-credit">Theme <a href="https://github.com/JoeYang1412/hugo-theme-spectra" target="_blank" rel="noopener noreferrer">Spectra</a> by <a href="https://github.com/JoeYang1412" target="_blank" rel="noopener noreferrer">JoeYang1412</a></div>
+</footer>
+
+    </div>
+  </div>
+
+  <div class="search-overlay" id="searchOverlay" data-index="/index.json" role="dialog" aria-modal="true" aria-label="Search">
+  <div class="search-container">
+    <div class="search-header">
+      <div class="search-input-wrapper">
+        <svg class="search-input-icon" width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="7.5" cy="7.5" r="5.5"/>
+          <line x1="11.5" y1="11.5" x2="16" y2="16"/>
+        </svg>
+        <input type="text" class="search-input" id="searchInput" placeholder="Search posts..." autocomplete="off">
+      </div>
+      <button class="search-close" id="searchClose" aria-label="Close search">
+        <kbd>ESC</kbd>
+      </button>
+    </div>
+    <div class="search-results" id="searchResults">
+      <div class="search-empty" id="searchEmpty">Type to search posts</div>
+    </div>
+  </div>
+</div>
+
+  
+  <button class="scroll-top-btn" id="scrollTopBtn" aria-label="Scroll to top">
+    <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M9 14V4"/>
+      <path d="M4 8l5-5 5 5"/>
+    </svg>
+  </button>
+  
+
+
+<script defer src="/js/loading.min.acdafeb711925c391663ac7d7dd3074073780c52938f11b6a5abd934f09f70ab.js" integrity="sha256-rNr&#43;txGSXDkWY6x9fdMHQHN4DFKTjxG2pavZNPCfcKs="></script>
+
+
+
+<script defer src="/js/theme-toggle.min.83716daf97a6d2e066062b2a8a71c24335d6114e14607f6be277233a4e8972c7.js" integrity="sha256-g3Ftr5em0uBmBisqinHCQzXWEU4UYH9r4ncjOk6Jcsc="></script>
+
+
+<script defer src="/js/sidebar.min.ade9447b99ee20969a805cba4d890453e168868aaa20ebfbeeb9e2c36440e1ad.js" integrity="sha256-relEe5nuIJaagFy6TYkEU&#43;FohoqqIOv77rniw2RA4a0="></script>
+
+
+
+<script defer src="/js/vendor/anime.umd.min.993e590fb09b6d8179bd481d33af2b799d3f3c6df7c13f454201dd48e8a34a85.js" integrity="sha256-mT5ZD7CbbYF5vUgdM68reZ0/PG33wT9FQgHdSOijSoU="></script>
+
+
+
+<script defer src="/js/scroll-animate.min.81b9b338700570aa84f30017cc3400aee2273cb166313dfe415649d386f1c0b8.js" integrity="sha256-gbmzOHAFcKqE8wAXzDQAruInPLFmMT3&#43;QVZJ04bxwLg="></script>
+
+
+
+
+<script defer src="/js/code-copy.min.cd5af80d55d88d9c5690a379c66973ce65a9b205041bb5873546ffa85151363b.js" integrity="sha256-zVr4DVXYjZxWkKN5xmlzzmWpsgUEG7WHNUb/qFFRNjs="></script>
+
+
+
+
+<script defer src="/js/scroll-top.min.6d14274370fca5085f0922608e7b13287b1456432a14d318ae7cfa629dd7bf62.js" integrity="sha256-bRQnQ3D8pQhfCSJgjnsTKHsUVkMqFNMYrnz6Yp3Xv2I="></script>
+
+
+
+
+<script defer src="/js/vendor/fuse.min.e3621b53cb77b4ec306dec41ed95511e6dd80d17fae5a04f3e346d214b9f8f92.js" integrity="sha256-42IbU8t3tOwwbexB7ZVRHm3YDRf65aBPPjRtIUufj5I="></script>
+
+
+<script defer src="/js/search.min.3ab7012086ba1ead467655a0780904d98645597c703f3e434c892a76d536af2c.js" integrity="sha256-OrcBIIa6Hq1GdlWgeAkE2YZFWXxwPz5DTIkqdtU2ryw="></script>
+
+
+
+
+<script defer src="/js/mouse-glow.min.30a00a148ec52c0495e1e4571821a68df31e15cbb78dc77410e33441648d5868.js" integrity="sha256-MKAKFI7FLASV4eRXGCGmjfMeFcu3jcd0EOM0QWSNWGg="></script>
+
+
+
+<script defer src="/js/smart-back.min.9e55a84c8d3665842b19d95cdd540bfcf9dc1c29bb91c9f9db4a20f57046d2b3.js" integrity="sha256-nlWoTI02ZYQrGdlc3VQL/PncHCm7kcn520og9XBG0rM="></script>
+
+
+<script defer src="/js/banner-fallback.min.b18f78a0d3ec4d1c9511355281e9cb9a7068cfa4e6ed7cf14250e1fc1bed5620.js" integrity="sha256-sY94oNPsTRyVETVSgenLmnBoz6Tm7XzxQlDh/BvtViA="></script>
+
+
+<script defer src="/js/cover-fade.min.06b68cc5a1d3c8e318c3d8d92d91ea4ab01fee5400ed3fe135e1a25dd026b232.js" integrity="sha256-BraMxaHTyOMYw9jZLZHqSrAf7lQA7T/hNeGiXdAmsjI="></script>
+
+
+
+<script defer src="/js/banner-parallax.min.25a246af8b73fbf34af50b5517ab74cf05a9d5fb7a0b2eb62f4df80482a998d5.js" integrity="sha256-JaJGr4tz&#43;/NK9QtVF6t0zwWp1ft6Cy62L034BIKpmNU="></script>
+
+
+
+
+<script defer src="/js/toc.min.fdf9aff368ce6d7bb9eda62ab73d641945a04aac09d0b70a0d961077a72b6572.js" integrity="sha256-/fmv82jObXu57aYqtz1kGUWgSqwJ0LcKDZYQd6crZXI="></script>
+
+
+
+
+<script defer src="/js/details-animate.min.cb571c36481a32e5149b8fbbe4bfc0e4adbcf284f6c1fadb5a5e6134daca6c26.js" integrity="sha256-y1ccNkgaMuUUm4&#43;75L/A5K288oT2wfrbWl5hNNrKbCY="></script>
+
+
+
+
+<script defer src="/js/reading-progress.min.29b8bc004734ac7b77592deb1790562d69ef0110c3e087ccee2c596615cf80f9.js" integrity="sha256-Kbi8AEc0rHt3WS3rF5BWLWnvARDD4IfM7ixZZhXPgPk="></script>
+
+
+
+
+<script defer src="/js/lightbox.min.2c9ba2771822bfc578c9f8106436f2f42dc46e94b362d99b3aab76cb77f41138.js" integrity="sha256-LJuidxgiv8V4yfgQZDby9C3EbpSzYtmbOqt2y3f0ETg="></script>
+
+
+
+
+<script defer src="/js/share-copy.min.3c8baa43857a563eaa255cb5d0aae67b33a0b24edf9a5fd1d249636b821667c4.js" integrity="sha256-PIuqQ4V6Vj6qJVy10KrmezOgsk7fml/R0klja4IWZ8Q="></script>
+
+
+
+
+
+
+</body>
+</html>

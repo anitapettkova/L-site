@@ -1,0 +1,144 @@
+baseURL = 'https://example.com'
+defaultContentLanguage = 'en'
+defaultContentLanguageInSubdir = false
+theme = 'hugo-theme-spectra'
+
+[outputs]
+  home = ['HTML', 'RSS', 'JSON']
+
+[pagination]
+  pagerSize = 10
+
+[taxonomies]
+  category = 'categories'
+  tag = 'tags'
+  series = 'series'
+
+[params]
+  # === Content Limits ===
+  homepagePostsLimit = 10
+  cardSummaryLength = 150
+  relatedPostsLimit = 3
+  cardImageQuality = 80
+  coverImageQuality = 85
+  # contentImageQuality = 90         # 內文圖片壓縮品質（1-100，需搭配 imageOptimize = true，預設已開啟）
+
+  # === Banner Text (uncomment to customize) ===
+  # bannerTitle = 'My'
+  # bannerHighlight = 'Tech Notes'
+  # bannerSubtitle = '// blog × code × ideas'
+
+  # === Feature Toggles (default: true, set false to disable) ===
+  enableLoadingAnimation = true
+  enableMouseGlow = true
+  showBanner = true
+  showReadingProgress = true
+  enableLightbox = true
+  showScrollTop = true
+  enableSearch = true
+  showRelatedPosts = true
+  showSeriesNav = true
+  enableCodeCopy = true
+  enableScrollAnimation = true
+
+  # === Share ===
+  sharePlatforms = ['twitter', 'facebook', 'linkedin']
+
+  # === Advanced: Custom CSS/JS ===
+  # customCSS = ['css/custom.css']
+  # customJS = ['js/custom.js']
+  # googleFontsURL = 'https://fonts.googleapis.com/css2?family=...'
+
+  # === Style Overrides ===
+  [params.style]
+    colorAccent = '#4a7de0'
+    colorAccentWarm = '#e8609e'
+    colorAccentSoft = '#a78bfa'
+    fontDisplay = "'Outfit', sans-serif"
+    fontBody = "'Zen Maru Gothic', 'Noto Sans TC', sans-serif"
+    fontMono = "'JetBrains Mono', monospace"
+    bannerImageText = '#fff'
+    # bannerImageSubtitle = 'rgba(255, 255, 255, 0.8)'
+    bannerImageGradient = 'linear-gradient(135deg, #4a7de0, #e8609e)'
+    bannerImageGradientFill = 'transparent'
+
+  [params.sidebar]
+    showAllPosts = false
+    showCategories = true
+    showTags = true
+    showRecent = false
+    categoryLimit = 5
+    tagsLimit = 20
+    recentLimit = 5
+
+[markup]
+  [markup.highlight]
+    guessSyntax = true
+    noClasses = false
+    lineNos = false
+    lineNumbersInTable = true
+  [markup.tableOfContents]
+    startLevel = 2
+    endLevel = 4
+  [markup.goldmark.renderer]
+    unsafe = true
+  [markup.goldmark.extensions.passthrough]
+    enable = true
+    [markup.goldmark.extensions.passthrough.delimiters]
+      block = [['$$', '$$']]
+      inline = [['$', '$']]
+
+# ============================================
+# Languages
+# ============================================
+
+[languages]
+  [languages.en]
+    weight = 2
+    title = "LP's Blog"
+
+    [languages.en.params]
+      description = "LP's personal blog"
+      author = 'Lilko Petkov'
+      tagline = '// Developer | DevOps | Cloud Engineer'
+      bio = 'Blog posts for new ideas, programming news and concepts, infrastructure and more'
+
+      [[languages.en.params.social]]
+        name = "GitHub"
+        url = "https://github.com/LilkoPetkov"
+
+      [[languages.en.params.social]]
+        name = "LinkedIn"
+        url = "https://github.com/LilkoPetkov"
+
+    [[languages.en.menus.main]]
+      name = "Home"
+      pageRef = "/"
+      weight = 1
+      pre = "⌂"
+    [[languages.en.menus.main]]
+      name = "Blog"
+      pageRef = "/posts"
+      weight = 2
+      pre = "✎"
+    [[languages.en.menus.main]]
+      name = "About"
+      pageRef = "/about"
+      weight = 5
+      pre = "◉"
+
+[related]
+  includeNewer = true
+  threshold = 50
+  toLower = true
+  [[related.indices]]
+    name = "tags"
+    weight = 80
+  [[related.indices]]
+    name = "date"
+    weight = 10
+    pattern = "2006"
+
+[caches]
+  [caches.images]
+    dir = ':cacheDir/images'

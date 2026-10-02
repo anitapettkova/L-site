@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+	<channel>
+		<title>Series-Name on Spectra Demo</title>
+		<link>http://localhost:1313/series/series-name/</link>
+		<description>Recent content in Series-Name on Spectra Demo</description>
+		<generator>Hugo</generator>
+		<language>en</language>
+		
+		
+		
+		
+			<lastBuildDate>Wed, 01 Jan 2025 00:00:00 +0000</lastBuildDate>
+		
+			<atom:link href="http://localhost:1313/series/series-name/index.xml" rel="self" type="application/rss+xml" />
+			<item>
+				<title>Post Title</title>
+				<link>http://localhost:1313/posts/helix_editor_setup/my_helix_editor_setup/</link>
+				<pubDate>Wed, 01 Jan 2025 00:00:00 +0000</pubDate>
+				<guid>http://localhost:1313/posts/helix_editor_setup/my_helix_editor_setup/</guid>
+				<description>&lt;p&gt;What is Helix? And why does it exist when we already have Neovim, Emacs, VS Code, and countless other editors?&lt;/p&gt;&#xA;&lt;p&gt;I asked myself the same question before making the switch. In this article, I’ll share my journey from PyCharm to Neovim and eventually to Helix, why I left each editor behind, and what made Helix stick as my daily editor.&lt;/p&gt;&#xA;&lt;h2 id=&#34;why-helix&#34;&gt;Why Helix?&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Less configuration, more time spent coding.&lt;/li&gt;&#xA;&lt;li&gt;Powerful features such as LSP, file picking, and global search are built in.&lt;/li&gt;&#xA;&lt;li&gt;Fast, keyboard-driven, and designed to run in the terminal.&lt;/li&gt;&#xA;&lt;li&gt;Selection-first editing provides a different and more intuitive editing workflow.&lt;/li&gt;&#xA;&lt;li&gt;Fewer plugins mean less configuration and maintenance.&lt;/li&gt;&#xA;&lt;li&gt;The trade-off is less customisation compared with Neovim or Emacs.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;from-pycharm-to-neovim&#34;&gt;From PyCharm to Neovim&lt;/h2&gt;&#xA;&lt;p&gt;I started my journey with Python a few years back, and naturally, I was using PyCharm as my text editor. After all, it was the natural choice (PYthon / PYcharm, get it?).&lt;/p&gt;</description>
+			</item>
+	</channel>
+</rss>

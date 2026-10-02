@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+(function(){
+  var d=document.documentElement;
+  var t=localStorage.getItem('theme')||(window.matchMedia('(prefers-color-scheme:light)').matches?'light':'dark');
+  d.setAttribute('data-theme',t);if(sessionStorage.getItem('spectra-loaded'))d.classList.add('spectra-revisit');
+  if(localStorage.getItem('sidebar-collapsed')==='true')d.classList.add('sidebar-collapsed');
+  if(localStorage.getItem('termsView')==='list')d.classList.add('terms-view-list');
+  d.classList.add('js');
+  d.classList.add('scroll-animate');
+})();
+</script><title> | Spectra Demo</title>
+<meta name="description" content="A sci-fi fusion Hugo blog theme">
+<meta name="author" content="Lilko Petkov">
+
+
+<link rel="icon" href="data:," type="image/x-icon">
+
+<link rel="canonical" href="http://localhost:1313/posts/general/my_helix_config/">
+
+
+
+<meta property="og:title" content="">
+<meta property="og:description" content="A sci-fi fusion Hugo blog theme">
+<meta property="og:type" content="article">
+<meta property="og:url" content="http://localhost:1313/posts/general/my_helix_config/">
+
+<meta property="og:site_name" content="Spectra Demo">
+
+<meta property="article:published_time" content="0001-01-01T00:00:00Z">
+
+
+
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="">
+<meta name="twitter:description" content="A sci-fi fusion Hugo blog theme">
+
+
+
+
+
+
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen&#43;Maru&#43;Gothic:wght@400;700&amp;family=Outfit:wght@300;400;600;700&amp;family=JetBrains&#43;Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+
+
+
+<link rel="stylesheet" href="/css/main.min.0384ec8e2552f0f88f78bcc2d9340b4268e3455150330f27723c13898614c405.css" integrity="sha256-A4TsjiVS8PiPeLzC2TQLQmjjRVFQMw8ncjwTiYYUxAU=">
+
+
+
+<style>
+  :root {
+    --accent: #4a7de0;
+    --accent-warm: #e8609e;
+    --accent-soft: #a78bfa;
+    
+    
+    
+    --font-display: 'Outfit', sans-serif;
+    --font-body: 'Zen Maru Gothic', 'Noto Sans TC', sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+    
+    
+    --banner-image-text: #fff;
+    
+    --banner-image-gradient: linear-gradient(135deg, #4a7de0, #e8609e);
+    --banner-image-gradient-fill: transparent;
+  }
+</style>
+
+
+
+
+
+
+</head><body
+  data-page-kind="page"
+  data-i18n-copy="Copy"
+  data-i18n-copied="Copied!"
+  data-i18n-code="CODE"
+  data-i18n-light="Light Mode"
+  data-i18n-dark="Dark Mode"
+  data-i18n-prev="Previous"
+  data-i18n-next="Next"
+  data-i18n-toggle-line-numbers="Toggle line numbers"
+  data-i18n-search-hint="Type to search posts"
+  data-i18n-search-no-results="No results found"
+  data-i18n-search-loading="Loading search index...">
+  <a href="#main-content" class="skip-link">Skip to content</a>
+  
+  <noscript>
+    <style>.loading-screen,.welcome-screen,.scan-line,.terms-view-toggle{display:none}.noscript-notice{background:var(--accent);color:#fff;text-align:center;padding:8px 16px;font-size:0.85rem;margin-left:var(--sidebar-width)}@media(max-width:900px){.noscript-notice{margin-left:0}}</style>
+    <div class="noscript-notice">Some features (search, theme toggle, animations) require JavaScript to work.</div>
+  </noscript>
+  <div class="loading-screen" id="loading">
+  <div class="loading-icon"></div>
+  <div class="loading-text">LOADING</div>
+</div>
+
+  <div class="scan-line" id="scanLine"></div>
+  
+  
+<aside class="sidebar" id="sidebar"><div class="sidebar-profile">
+  <div class="avatar">
+    <div class="avatar-inner">
+      
+        L
+      
+    </div>
+  </div>
+  <div class="sidebar-name">Lilko Petkov</div>
+  <div class="sidebar-tagline">// Developer | DevOps | Cloud Engineer</div>
+  
+  <div class="sidebar-bio">Blog posts for new ideas, programming news and concepts, infrastructure and more</div>
+  
+  
+  <div class="profile-social">
+    
+    
+    
+    
+    <a href="https://github.com/LilkoPetkov" title="GitHub" aria-label="GitHub" target="_blank" rel="noopener noreferrer">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+    </a>
+    
+  </div>
+  
+</div>
+<nav class="sidebar-nav">
+  <div class="sidebar-nav-label">Navigation</div>
+  
+  <button id="searchTrigger" data-tooltip="Search" aria-label="Search">
+    <span class="nav-icon"><svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="7.5" cy="7.5" r="5.5"/><line x1="11.5" y1="11.5" x2="16" y2="16"/></svg></span>
+    <span class="nav-text">Search</span>
+  </button>
+  
+  
+    <a href="/" data-tooltip="Home" >
+      <span class="nav-icon">⌂</span>
+      <span class="nav-text">Home</span>
+    </a>
+  
+    <a href="/posts/" data-tooltip="Blog" class="active" aria-current="page">
+      <span class="nav-icon">✎</span>
+      <span class="nav-text">Blog</span>
+    </a>
+  
+    <a href="/about" data-tooltip="About" >
+      <span class="nav-icon">◉</span>
+      <span class="nav-text">About</span>
+    </a>
+  
+</nav>
+
+<div class="sidebar-categories">
+  <a href="/posts/" class="sidebar-collapsed-icon" data-tooltip="Categories" aria-label="Categories">
+    <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="6" height="6" rx="1"/><rect x="10" y="2" width="6" height="6" rx="1"/><rect x="2" y="10" width="6" height="6" rx="1"/><rect x="10" y="10" width="6" height="6" rx="1"/></svg>
+  </a>
+  <div class="sidebar-nav-label">Categories</div>
+
+  
+  
+  <a href="/posts/" class="sidebar-category-item">
+    <span class="category-name">All Posts</span>
+    <span class="category-count">4</span>
+  </a>
+  
+
+  
+    
+    
+      
+      
+      
+    
+  
+</div>
+
+
+
+
+<div class="sidebar-recent">
+  <div class="sidebar-nav-label">Recent</div>
+  
+  <a href="/posts/my_helix_editor_setup/" class="sidebar-recent-item"></a>
+  
+  <a href="/posts/my_helix_config/" class="sidebar-recent-item"></a>
+  
+  <a href="/posts/general/my_helix_editor_setup/" class="sidebar-recent-item"></a>
+  
+  <a href="/posts/general/my_helix_config/" class="sidebar-recent-item"></a>
+  
+</div>
+
+<div class="sidebar-footer">
+  <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+    <span id="themeIcon">&#9728;</span>
+    <span id="themeLabel">Light Mode</span>
+  </button>
+  
+  <div class="sidebar-copyright">&copy; 2026 Lilko Petkov. All Rights Reserved.</div>
+</div>
+</aside>
+<button class="sidebar-collapse-btn" id="sidebarCollapse" aria-label="Toggle sidebar collapse">
+    <svg class="collapse-icon-collapse" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 2L5 8l6 6"/></svg>
+    <svg class="collapse-icon-expand" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 2l6 6-6 6"/></svg>
+  </button>
+  <button class="sidebar-toggle" id="sidebarToggle" aria-label="Toggle sidebar" aria-expanded="false">&#9776;</button>
+  <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+  <div class="site-wrapper">
+    <div class="mouse-glow" id="mouseGlow" aria-hidden="true"></div>
+
+    <div class="content-area" id="main-content">
+
+
+<div class="reading-progress" id="readingProgress" aria-hidden="true">
+  <div class="reading-progress-bar" id="readingProgressBar"></div>
+</div>
+
+
+<main class="main-content">
+  <div class="article-header">
+    <a href="/posts/" class="back-link" data-fallback="/posts/" aria-label="Go back">
+      <svg class="back-icon" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3L1 8l5 5"/><line x1="1.5" y1="8" x2="15" y2="8"/></svg>
+      <span class="back-text">Go back</span>
+    </a>
+    <div class="section-label">Blog</div>
+    <h1></h1><div class="article-meta">
+  
+  <span>6 min read</span>
+</div></div>
+
+  <div class="single-layout">
+    
+    
+    
+    <aside class="toc-sidebar" aria-label="Table of Contents">
+      <div class="toc-title">
+        <div class="sidebar-nav-label">Contents</div>
+      </div>
+      <nav class="toc-nav">
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#intro">Intro</a></li>
+    <li><a href="#body">Body</a>
+      <ul>
+        <li><a href="#once-we-have-the-config-available-we-can-select-a-theme-for-the-theme-we-can-press-the--while-in-normal-mode-and-we-will-enter-the-command-mode-where-we-can-write-the-theme-command-and-helix-will-automatically-pull-all-the-themes-that-are-avaialable-by-default-i-am-currently-using-ayu_darkas-a-default-theme-which-means-that-we-can-just-add-to-our-config">Once we have the config available, we can select a theme. For the theme we can press the <code>:</code> while in <code>NORMAL</code> mode and we will enter the <code>COMMAND</code> mode where we can write the <code>theme</code> command and Helix will automatically pull all the themes that are avaialable by default. I am currently using <code>ayu_dark</code>as a default theme, which means that we can just add to our config:</a></li>
+        <li><a href="#after-this-we-get-to-the-editor-block-this-allows-us-to-customise-look-and-feel-of-the-text-editor-while-there-are-a-ton-of-options-here-i-think-that-the-most-important-ones-are-relative-line-numbers-auto-complete-cursorline-for-highlighting-and-completion-timeout-set-to-5-which-is-basically-instantly-showing-completions-after-typing-a-word-my-editor-block-looks-like-this">After this, we get to the editor block, this allows us to customise look and feel of the text editor. While there are a ton of options here, I think that the most important ones are: <code>relative line numbers</code>, <code>auto-complete</code>, <code>cursorline</code> for highlighting and <code>completion-timeout</code> set to 5, which is basically instantly showing completions after typing a word. My <code>editor</code> block looks like this:</a></li>
+        <li><a href="#we-then-have-the-cursor-shape-block-which-allows-us-to-customise-the-look-of-our-cursor-here-we-have-somewhat-limited-options-but-still-enough-i-would-say-i-am-using-the-following-setup">We then have the cursor-shape block which allows us to customise the look of our cursor. Here we have somewhat limited options, but still enough I would say. I am using the following setup:</a></li>
+        <li><a href="#then-we-move-to-the-indent-guides-i-just-use-render-which-allows-us-to-see-a-symbol-rendered-on-an-indented-line">Then we move to the indent-guides I just use <code>render</code>, which allows us to see a symbol rendered on an indented line:</a></li>
+        <li><a href="#now-we-move-to-the-soft-wrapping-this-allows-for-a-long-line-to-be-nicely-wrapper-on-a-new-line-if-it-would-go-out-of-the-screens-bounds-i-just-enable-it-here">Now we move to the soft-wrapping, this allows for a long line to be nicely wrapper on a new line if it would go out of the screen’s bounds. I just enable it here.</a></li>
+        <li><a href="#this-is-a-bit-specific-as-it-is-all-about-personal-preference-but-we-got-to-the-key-bindings-the-keymaps-i-use-are-the-below-ones">This is a bit specific as it is all about personal preference, but we got to the key-bindings. The keymaps I use are the below ones.</a></li>
+        <li><a href="#line-diagnostics-used-to-render-diagnostics-inside-the-text-editor">Line diagnostics, used to render diagnostics inside the text editor</a></li>
+        <li><a href="#we-can-continue-with-the-file-picker-it-is-maybe-one-of-the-most-important-things-to-configure-as-i-had-some-trouble-with-it-after-a-bit-of-debugging-those-are-the-options-that-work-best-for-me">We can continue with the file-picker. It is maybe one of the most important things to configure, as I had some trouble with it. After a bit of debugging those are the options that work best for me:</a></li>
+        <li><a href="#the-next-one-in-the-list-is-the-statusline-that-basically-configures-what-we-would-see-at-the-bottom-of-the-editor-i-currently-use">The next one in the list is the statusline that basically configures what we would see at the bottom of the editor. I currently use:</a></li>
+        <li><a href="#and-the-last-one-is-a-bit-specific-it-allows-us-to-open-the-file-picker-in-the-current-working-directory">And the last one is a bit specific, it allows us to open the file picker in the current working directory.</a></li>
+        <li><a href="#full-config">Full config</a></li>
+      </ul>
+    </li>
+    <li><a href="#conclusion">Conclusion</a></li>
+  </ul>
+</nav>
+      </nav>
+    </aside>
+
+    
+    <button class="toc-float-toggle" id="tocFloatToggle" aria-label="Toggle table of contents" aria-expanded="false">
+      <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><line x1="6" y1="4" x2="15" y2="4"/><line x1="6" y1="9" x2="15" y2="9"/><line x1="6" y1="14" x2="15" y2="14"/><circle cx="3" cy="4" r="1" fill="currentColor" stroke="none"/><circle cx="3" cy="9" r="1" fill="currentColor" stroke="none"/><circle cx="3" cy="14" r="1" fill="currentColor" stroke="none"/></svg>
+    </button>
+    <div class="toc-float-panel" id="tocFloatPanel">
+      <div class="toc-float-header">
+        <div class="sidebar-nav-label">Contents</div>
+        <button class="toc-float-close" id="tocFloatClose" aria-label="Close table of contents">&times;</button>
+      </div>
+      <nav class="toc-nav">
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#intro">Intro</a></li>
+    <li><a href="#body">Body</a>
+      <ul>
+        <li><a href="#once-we-have-the-config-available-we-can-select-a-theme-for-the-theme-we-can-press-the--while-in-normal-mode-and-we-will-enter-the-command-mode-where-we-can-write-the-theme-command-and-helix-will-automatically-pull-all-the-themes-that-are-avaialable-by-default-i-am-currently-using-ayu_darkas-a-default-theme-which-means-that-we-can-just-add-to-our-config">Once we have the config available, we can select a theme. For the theme we can press the <code>:</code> while in <code>NORMAL</code> mode and we will enter the <code>COMMAND</code> mode where we can write the <code>theme</code> command and Helix will automatically pull all the themes that are avaialable by default. I am currently using <code>ayu_dark</code>as a default theme, which means that we can just add to our config:</a></li>
+        <li><a href="#after-this-we-get-to-the-editor-block-this-allows-us-to-customise-look-and-feel-of-the-text-editor-while-there-are-a-ton-of-options-here-i-think-that-the-most-important-ones-are-relative-line-numbers-auto-complete-cursorline-for-highlighting-and-completion-timeout-set-to-5-which-is-basically-instantly-showing-completions-after-typing-a-word-my-editor-block-looks-like-this">After this, we get to the editor block, this allows us to customise look and feel of the text editor. While there are a ton of options here, I think that the most important ones are: <code>relative line numbers</code>, <code>auto-complete</code>, <code>cursorline</code> for highlighting and <code>completion-timeout</code> set to 5, which is basically instantly showing completions after typing a word. My <code>editor</code> block looks like this:</a></li>
+        <li><a href="#we-then-have-the-cursor-shape-block-which-allows-us-to-customise-the-look-of-our-cursor-here-we-have-somewhat-limited-options-but-still-enough-i-would-say-i-am-using-the-following-setup">We then have the cursor-shape block which allows us to customise the look of our cursor. Here we have somewhat limited options, but still enough I would say. I am using the following setup:</a></li>
+        <li><a href="#then-we-move-to-the-indent-guides-i-just-use-render-which-allows-us-to-see-a-symbol-rendered-on-an-indented-line">Then we move to the indent-guides I just use <code>render</code>, which allows us to see a symbol rendered on an indented line:</a></li>
+        <li><a href="#now-we-move-to-the-soft-wrapping-this-allows-for-a-long-line-to-be-nicely-wrapper-on-a-new-line-if-it-would-go-out-of-the-screens-bounds-i-just-enable-it-here">Now we move to the soft-wrapping, this allows for a long line to be nicely wrapper on a new line if it would go out of the screen’s bounds. I just enable it here.</a></li>
+        <li><a href="#this-is-a-bit-specific-as-it-is-all-about-personal-preference-but-we-got-to-the-key-bindings-the-keymaps-i-use-are-the-below-ones">This is a bit specific as it is all about personal preference, but we got to the key-bindings. The keymaps I use are the below ones.</a></li>
+        <li><a href="#line-diagnostics-used-to-render-diagnostics-inside-the-text-editor">Line diagnostics, used to render diagnostics inside the text editor</a></li>
+        <li><a href="#we-can-continue-with-the-file-picker-it-is-maybe-one-of-the-most-important-things-to-configure-as-i-had-some-trouble-with-it-after-a-bit-of-debugging-those-are-the-options-that-work-best-for-me">We can continue with the file-picker. It is maybe one of the most important things to configure, as I had some trouble with it. After a bit of debugging those are the options that work best for me:</a></li>
+        <li><a href="#the-next-one-in-the-list-is-the-statusline-that-basically-configures-what-we-would-see-at-the-bottom-of-the-editor-i-currently-use">The next one in the list is the statusline that basically configures what we would see at the bottom of the editor. I currently use:</a></li>
+        <li><a href="#and-the-last-one-is-a-bit-specific-it-allows-us-to-open-the-file-picker-in-the-current-working-directory">And the last one is a bit specific, it allows us to open the file picker in the current working directory.</a></li>
+        <li><a href="#full-config">Full config</a></li>
+      </ul>
+    </li>
+    <li><a href="#conclusion">Conclusion</a></li>
+  </ul>
+</nav>
+      </nav>
+      <a href="/posts/" class="back-link" data-fallback="/posts/" aria-label="Go back">
+        <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3L1 8l5 5"/><line x1="1.5" y1="8" x2="15" y2="8"/></svg>
+        Go back
+      </a>
+    </div>
+    <div class="toc-float-overlay" id="tocFloatOverlay"></div>
+    
+
+    <article class="article-content">
+      <h1 id="my-helix-setup-and-config">My <code>Helix</code> Setup and Config</h1>
+<h2 id="intro">Intro</h2>
+<p>So, my Helix setup is quite simple, I learned that there are not too many things required for a good and efficient developer workflow.
+The main things I need are, editing the keybinds, having a theme that would not overwhelm my eyes if I sit and write code for 5 hours straight, formatting, LSP and an efficient way to find things in my project&rsquo;s files. Fortunetly Helix does have all of that pretty much out of the box.</p>
+<p>So let&rsquo;s get started with the config I have and other useful options that the Helix configuration provides, which you might find useful.</p>
+<h2 id="body">Body</h2>
+<p>Okay, so let&rsquo;s get started. Once we <a href="https://docs.helix-editor.com/package-managers.html">install</a> Helix, we can use its alias <code>hx</code> to start the program. It would look a bit basic, so we can start customising it a bit.</p>
+<p>I guess we should first find where the config for Helix is exactly. On Mac and Linux it would be in <code>~/.config/helix/config.toml</code>, for Windows it is at: <code>%AppData%\helix\config.toml</code>. At first, most likely the file will be empty or completely missing, so we can create the directory and the file if necessary.</p>
+<h3 id="once-we-have-the-config-available-we-can-select-a-theme-for-the-theme-we-can-press-the--while-in-normal-mode-and-we-will-enter-the-command-mode-where-we-can-write-the-theme-command-and-helix-will-automatically-pull-all-the-themes-that-are-avaialable-by-default-i-am-currently-using-ayu_darkas-a-default-theme-which-means-that-we-can-just-add-to-our-config">Once we have the config available, we can select a <a href="https://docs.helix-editor.com/themes.html">theme</a>. For the theme we can press the <code>:</code> while in <code>NORMAL</code> mode and we will enter the <code>COMMAND</code> mode where we can write the <code>theme</code> command and Helix will automatically pull all the themes that are avaialable by default. I am currently using <code>ayu_dark</code>as a default theme, which means that we can just add to our config:</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-toml" data-lang="toml"><span class="line"><span class="cl"><span class="nx">theme</span> <span class="p">=</span> <span class="s2">&#34;ayu_dark&#34;</span> <span class="c"># Or whichever theme you liked most, you can also create your custom ones (link above)</span>
+</span></span></code></pre></div><h3 id="after-this-we-get-to-the-editor-block-this-allows-us-to-customise-look-and-feel-of-the-text-editor-while-there-are-a-ton-of-options-here-i-think-that-the-most-important-ones-are-relative-line-numbers-auto-complete-cursorline-for-highlighting-and-completion-timeout-set-to-5-which-is-basically-instantly-showing-completions-after-typing-a-word-my-editor-block-looks-like-this">After this, we get to the <a href="https://docs.helix-editor.com/editor.html">editor</a> block, this allows us to customise look and feel of the text editor. While there are a ton of options here, I think that the most important ones are: <code>relative line numbers</code>, <code>auto-complete</code>, <code>cursorline</code> for highlighting and <code>completion-timeout</code> set to 5, which is basically instantly showing completions after typing a word. My <code>editor</code> block looks like this:</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-toml" data-lang="toml"><span class="line"><span class="cl"><span class="p">[</span><span class="nx">editor</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="nx">line-number</span> <span class="p">=</span> <span class="s2">&#34;relative&#34;</span>   <span class="c"># Relative lines</span>
+</span></span><span class="line"><span class="cl"><span class="nx">color-modes</span> <span class="p">=</span> <span class="kc">true</span>         <span class="c"># Color changes of different modes (INSERT, NORMAL, etc)</span>
+</span></span><span class="line"><span class="cl"><span class="kc">true</span><span class="nx">-color</span> <span class="p">=</span> <span class="kc">true</span>          <span class="c"># Overwrite detetion of terminal true color</span>
+</span></span><span class="line"><span class="cl"><span class="nx">auto-completion</span> <span class="p">=</span> <span class="kc">true</span>     <span class="c"># Auto complete</span>
+</span></span><span class="line"><span class="cl"><span class="nx">continue-comments</span> <span class="p">=</span> <span class="kc">false</span>  <span class="c"># Comment continuation disabled, basically if we have a comment and press `Enter` the next line will start with the comment token as well</span>
+</span></span><span class="line"><span class="cl"><span class="nx">cursorline</span> <span class="p">=</span> <span class="kc">true</span>          <span class="c"># Cursor line highlighting</span>
+</span></span><span class="line"><span class="cl"><span class="nx">completion-timeout</span> <span class="p">=</span> <span class="mi">5</span>     <span class="c"># Instant completion suggestions showing once a word is written</span>
+</span></span></code></pre></div><h3 id="we-then-have-the-cursor-shape-block-which-allows-us-to-customise-the-look-of-our-cursor-here-we-have-somewhat-limited-options-but-still-enough-i-would-say-i-am-using-the-following-setup">We then have the <a href="https://docs.helix-editor.com/editor.html#editorcursor-shape-section">cursor-shape</a> block which allows us to customise the look of our cursor. Here we have somewhat limited options, but still enough I would say. I am using the following setup:</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-toml" data-lang="toml"><span class="line"><span class="cl"><span class="p">[</span><span class="nx">editor</span><span class="p">.</span><span class="nx">cursor-shape</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="nx">insert</span> <span class="p">=</span> <span class="s2">&#34;bar&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nx">normal</span> <span class="p">=</span> <span class="s2">&#34;block&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nx">select</span> <span class="p">=</span> <span class="s2">&#34;underline&#34;</span>  
+</span></span></code></pre></div><h3 id="then-we-move-to-the-indent-guides-i-just-use-render-which-allows-us-to-see-a-symbol-rendered-on-an-indented-line">Then we move to the <a href="https://docs.helix-editor.com/editor.html#editorindent-guides-section">indent-guides</a> I just use <code>render</code>, which allows us to see a symbol rendered on an indented line:</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-toml" data-lang="toml"><span class="line"><span class="cl"><span class="p">[</span><span class="nx">editor</span><span class="p">.</span><span class="nx">indent-guides</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="nx">render</span> <span class="p">=</span> <span class="kc">true</span>
+</span></span></code></pre></div><p>The symbol can also be configured if needed, I just use the default pipe.</p>
+<h3 id="now-we-move-to-the-soft-wrapping-this-allows-for-a-long-line-to-be-nicely-wrapper-on-a-new-line-if-it-would-go-out-of-the-screens-bounds-i-just-enable-it-here">Now we move to the <a href="https://docs.helix-editor.com/editor.html#editorsoft-wrap-section">soft-wrapping</a>, this allows for a long line to be nicely wrapper on a new line if it would go out of the screen&rsquo;s bounds. I just enable it here.</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-toml" data-lang="toml"><span class="line"><span class="cl"><span class="p">[</span><span class="nx">editor</span><span class="p">.</span><span class="nx">soft-wrap</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="nx">enable</span> <span class="p">=</span> <span class="kc">true</span>
+</span></span></code></pre></div><p><img src="/assets/images/helix_line_wrapping.png" alt="helix line wrapping" loading="lazy" decoding="async"></p>
+<p>We can see the symbol on the left of the second line. It is all basically 1 line, but Helix manages to wrap it up for us. I would say it is acquired taste, as not all people would like it, but it is good to know that it is there as an option.</p>
+<p><strong>Important</strong>! Do note that the soft-wrapping can conflict a bit with the <code>relative line numbers</code>, as a wrapped line DOESN&rsquo;T count as one line. This means that if I have one line wrapped and shown on 3 lines, if I press <code>2 + k</code>, it moves two lines up, still on the wrapped line.</p>
+<h3 id="this-is-a-bit-specific-as-it-is-all-about-personal-preference-but-we-got-to-the-key-bindings-the-keymaps-i-use-are-the-below-ones">This is a bit specific as it is all about personal preference, but we got to the <a href="https://docs.helix-editor.com/remapping.html">key-bindings</a>. The keymaps I use are the below ones.</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-toml" data-lang="toml"><span class="line"><span class="cl"><span class="p">[</span><span class="nx">keys</span><span class="p">.</span><span class="nx">normal</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="nx">S-left</span> <span class="p">=</span> <span class="s2">&#34;jump_view_left&#34;</span>              <span class="c"># Shift and Left arrow to move to the left split screen</span>
+</span></span><span class="line"><span class="cl"><span class="nx">S-right</span> <span class="p">=</span> <span class="s2">&#34;jump_view_right&#34;</span>            <span class="c"># Shift and Right arrow to move to the right split screen</span>
+</span></span><span class="line"><span class="cl"><span class="nx">S-down</span> <span class="p">=</span> <span class="s2">&#34;jump_view_down&#34;</span>              <span class="c"># Shift and Down arrow to move to the bottom split screen</span>
+</span></span><span class="line"><span class="cl"><span class="nx">S-up</span> <span class="p">=</span> <span class="s2">&#34;jump_view_up&#34;</span>                  <span class="c"># Shift and Up arrow to move to the top split screen</span>
+</span></span><span class="line"><span class="cl"><span class="nx">C-S-r</span> <span class="p">=</span> <span class="s2">&#34;:sh python3 %{buffer_name}&#34;</span>   <span class="c"># Control + Shift + r to run the currently opened/buffered Python file</span>
+</span></span><span class="line"><span class="cl"><span class="nx">C-S-g</span> <span class="p">=</span> <span class="s2">&#34;:sh go run %{buffer_name}&#34;</span>    <span class="c"># Control + Shift + g to run the currently opened/buffered Go file</span>
+</span></span><span class="line"><span class="cl"><span class="nx">C-S-z</span> <span class="p">=</span> <span class="s2">&#34;:sh zig run %{buffer_name}&#34;</span>   <span class="c"># Control + Shift + z to run the currently opened/buffered Zig file</span>
+</span></span><span class="line"><span class="cl"><span class="s2">&#34;A-w&#34;</span> <span class="p">=</span> <span class="s2">&#34;:wa!&#34;</span>                         <span class="c"># Alt + w to save and close all buffers</span>
+</span></span><span class="line"><span class="cl"><span class="s2">&#34;A-q&#34;</span> <span class="p">=</span> <span class="s2">&#34;:q!&#34;</span>                          <span class="c"># Alt + q to only close all buffers</span>
+</span></span><span class="line"><span class="cl"><span class="s2">&#34;)&#34;</span> <span class="p">=</span> <span class="s2">&#34;@vt&lt;space&gt;&#34;</span>                     <span class="c"># ) character to mark and go to the next possible empty space on the line</span>
+</span></span></code></pre></div><p>You can use those as a base and extend, change them as you see fit. All other key-binds, at least in my mind were making sense, so I never had to re-bind them.</p>
+<h3 id="line-diagnostics-used-to-render-diagnostics-inside-the-text-editor">Line <a href="https://docs.helix-editor.com/editor.html#editorinline-diagnostics-section">diagnostics</a>, used to render diagnostics inside the text editor</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-toml" data-lang="toml"><span class="line"><span class="cl"><span class="p">[</span><span class="nx">editor</span><span class="p">.</span><span class="nx">inline-diagnostics</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="nx">cursor-line</span> <span class="p">=</span> <span class="s2">&#34;hint&#34;</span>  
+</span></span></code></pre></div><p><img src="/assets/images/line_diagnostics.png" alt="helix line diagnostics" loading="lazy" decoding="async"></p>
+<h3 id="we-can-continue-with-the-file-picker-it-is-maybe-one-of-the-most-important-things-to-configure-as-i-had-some-trouble-with-it-after-a-bit-of-debugging-those-are-the-options-that-work-best-for-me">We can continue with the <a href="https://docs.helix-editor.com/editor.html#editorfile-picker-section">file-picker</a>. It is maybe one of the most important things to configure, as I had some trouble with it. After a bit of debugging those are the options that work best for me:</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-toml" data-lang="toml"><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">[</span><span class="nx">editor</span><span class="p">.</span><span class="nx">file-picker</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="nx">hidden</span> <span class="p">=</span> <span class="kc">false</span>      <span class="c"># Do not ignore hidden files</span>
+</span></span><span class="line"><span class="cl"><span class="nx">ignore</span> <span class="p">=</span> <span class="kc">true</span>       <span class="c"># Read .ignore files</span>
+</span></span><span class="line"><span class="cl"><span class="nx">git-ignore</span> <span class="p">=</span> <span class="kc">true</span>   <span class="c"># Read .gitignore files as well</span>
+</span></span></code></pre></div><h3 id="the-next-one-in-the-list-is-the-statusline-that-basically-configures-what-we-would-see-at-the-bottom-of-the-editor-i-currently-use">The next one in the list is the <a href="https://docs.helix-editor.com/editor.html#editorstatusline-section">statusline</a> that basically configures what we would see at the bottom of the editor. I currently use:</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-toml" data-lang="toml"><span class="line"><span class="cl"><span class="p">[</span><span class="nx">editor</span><span class="p">.</span><span class="nx">statusline</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="nx">left</span> <span class="p">=</span> <span class="p">[</span><span class="s2">&#34;mode&#34;</span><span class="p">,</span> <span class="s2">&#34;spinner&#34;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="nx">center</span> <span class="p">=</span> <span class="p">[</span><span class="s2">&#34;file-name&#34;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="nx">right</span> <span class="p">=</span> <span class="p">[</span><span class="s2">&#34;diagnostics&#34;</span><span class="p">,</span> <span class="s2">&#34;selections&#34;</span><span class="p">,</span> <span class="s2">&#34;position&#34;</span><span class="p">,</span> <span class="s2">&#34;file-encoding&#34;</span><span class="p">,</span> <span class="s2">&#34;file-line-ending&#34;</span><span class="p">,</span> <span class="s2">&#34;file-type&#34;</span><span class="p">,</span> <span class="s2">&#34;file-modification-indicator&#34;</span><span class="p">,</span> <span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="nx">separator</span> <span class="p">=</span> <span class="s2">&#34;|&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nx">mode</span><span class="p">.</span><span class="nx">normal</span> <span class="p">=</span> <span class="s2">&#34;NORMAL&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nx">mode</span><span class="p">.</span><span class="nx">insert</span> <span class="p">=</span> <span class="s2">&#34;INSERT&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nx">mode</span><span class="p">.</span><span class="nx">select</span> <span class="p">=</span> <span class="s2">&#34;SELECT&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nx">diagnostics</span> <span class="p">=</span> <span class="p">[</span><span class="s2">&#34;warning&#34;</span><span class="p">,</span> <span class="s2">&#34;error&#34;</span><span class="p">,</span> <span class="s2">&#34;info&#34;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="nx">workspace-diagnostics</span> <span class="p">=</span> <span class="p">[</span><span class="s2">&#34;warning&#34;</span><span class="p">,</span> <span class="s2">&#34;error&#34;</span><span class="p">,</span> <span class="s2">&#34;info&#34;</span><span class="p">]</span>
+</span></span></code></pre></div><p><img src="/assets/images/helix_status_line.png" alt="helix line diagnostics" loading="lazy" decoding="async"></p>
+<h3 id="and-the-last-one-is-a-bit-specific-it-allows-us-to-open-the-file-picker-in-the-current-working-directory">And the last one is a bit specific, it allows us to open the file picker in the current working directory.</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-toml" data-lang="toml"><span class="line"><span class="cl"><span class="p">[</span><span class="nx">keys</span><span class="p">.</span><span class="nx">normal</span><span class="p">.</span><span class="nx">space</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="nx">f</span> <span class="p">=</span> <span class="s2">&#34;file_picker_in_current_directory&#34;</span>
+</span></span></code></pre></div><h3 id="full-config">Full config</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-toml" data-lang="toml"><span class="line"><span class="cl"><span class="nx">theme</span> <span class="p">=</span> <span class="s2">&#34;ayu_dark&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">[</span><span class="nx">editor</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="nx">line-number</span> <span class="p">=</span> <span class="s2">&#34;relative&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nx">color-modes</span> <span class="p">=</span> <span class="kc">true</span>
+</span></span><span class="line"><span class="cl"><span class="kc">true</span><span class="nx">-color</span> <span class="p">=</span> <span class="kc">true</span>
+</span></span><span class="line"><span class="cl"><span class="nx">auto-completion</span> <span class="p">=</span> <span class="kc">true</span>
+</span></span><span class="line"><span class="cl"><span class="nx">continue-comments</span> <span class="p">=</span> <span class="kc">false</span>
+</span></span><span class="line"><span class="cl"><span class="nx">cursorline</span> <span class="p">=</span> <span class="kc">true</span>
+</span></span><span class="line"><span class="cl"><span class="nx">completion-timeout</span> <span class="p">=</span> <span class="mi">5</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">[</span><span class="nx">editor</span><span class="p">.</span><span class="nx">cursor-shape</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="nx">insert</span> <span class="p">=</span> <span class="s2">&#34;bar&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nx">normal</span> <span class="p">=</span> <span class="s2">&#34;block&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nx">select</span> <span class="p">=</span> <span class="s2">&#34;underline&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">[</span><span class="nx">editor</span><span class="p">.</span><span class="nx">indent-guides</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="nx">render</span> <span class="p">=</span> <span class="kc">true</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">[</span><span class="nx">editor</span><span class="p">.</span><span class="nx">soft-wrap</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="nx">enable</span> <span class="p">=</span> <span class="kc">true</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">[</span><span class="nx">keys</span><span class="p">.</span><span class="nx">normal</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="nx">S-left</span> <span class="p">=</span> <span class="s2">&#34;jump_view_left&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nx">S-right</span> <span class="p">=</span> <span class="s2">&#34;jump_view_right&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nx">S-down</span> <span class="p">=</span> <span class="s2">&#34;jump_view_down&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nx">S-up</span> <span class="p">=</span> <span class="s2">&#34;jump_view_up&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nx">C-S-r</span> <span class="p">=</span> <span class="s2">&#34;:sh python3 %{buffer_name}&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nx">C-S-g</span> <span class="p">=</span> <span class="s2">&#34;:sh go run %{buffer_name}&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nx">C-S-z</span> <span class="p">=</span> <span class="s2">&#34;:sh zig run %{buffer_name}&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="s2">&#34;A-w&#34;</span> <span class="p">=</span> <span class="s2">&#34;:wa!&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="s2">&#34;A-q&#34;</span> <span class="p">=</span> <span class="s2">&#34;:q!&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="s2">&#34;)&#34;</span> <span class="p">=</span> <span class="s2">&#34;@vt&lt;space&gt;&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">[</span><span class="nx">editor</span><span class="p">.</span><span class="nx">inline-diagnostics</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="nx">cursor-line</span> <span class="p">=</span> <span class="s2">&#34;hint&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">[</span><span class="nx">editor</span><span class="p">.</span><span class="nx">file-picker</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="nx">hidden</span> <span class="p">=</span> <span class="kc">false</span>
+</span></span><span class="line"><span class="cl"><span class="nx">ignore</span> <span class="p">=</span> <span class="kc">true</span>
+</span></span><span class="line"><span class="cl"><span class="nx">git-ignore</span> <span class="p">=</span> <span class="kc">true</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">[</span><span class="nx">editor</span><span class="p">.</span><span class="nx">statusline</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="nx">left</span> <span class="p">=</span> <span class="p">[</span><span class="s2">&#34;mode&#34;</span><span class="p">,</span> <span class="s2">&#34;spinner&#34;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="nx">center</span> <span class="p">=</span> <span class="p">[</span><span class="s2">&#34;file-name&#34;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="nx">right</span> <span class="p">=</span> <span class="p">[</span><span class="s2">&#34;diagnostics&#34;</span><span class="p">,</span> <span class="s2">&#34;selections&#34;</span><span class="p">,</span> <span class="s2">&#34;position&#34;</span><span class="p">,</span> <span class="s2">&#34;file-encoding&#34;</span><span class="p">,</span> <span class="s2">&#34;file-line-ending&#34;</span><span class="p">,</span> <span class="s2">&#34;file-type&#34;</span><span class="p">,</span> <span class="s2">&#34;file-modification-indicator&#34;</span><span class="p">,</span> <span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="nx">separator</span> <span class="p">=</span> <span class="s2">&#34;|&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nx">mode</span><span class="p">.</span><span class="nx">normal</span> <span class="p">=</span> <span class="s2">&#34;NORMAL&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nx">mode</span><span class="p">.</span><span class="nx">insert</span> <span class="p">=</span> <span class="s2">&#34;INSERT&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nx">mode</span><span class="p">.</span><span class="nx">select</span> <span class="p">=</span> <span class="s2">&#34;SELECT&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nx">diagnostics</span> <span class="p">=</span> <span class="p">[</span><span class="s2">&#34;warning&#34;</span><span class="p">,</span> <span class="s2">&#34;error&#34;</span><span class="p">,</span> <span class="s2">&#34;info&#34;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="nx">workspace-diagnostics</span> <span class="p">=</span> <span class="p">[</span><span class="s2">&#34;warning&#34;</span><span class="p">,</span> <span class="s2">&#34;error&#34;</span><span class="p">,</span> <span class="s2">&#34;info&#34;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">[</span><span class="nx">keys</span><span class="p">.</span><span class="nx">normal</span><span class="p">.</span><span class="nx">space</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="nx">f</span> <span class="p">=</span> <span class="s2">&#34;file_picker_in_current_directory&#34;</span>  
+</span></span></code></pre></div><h2 id="conclusion">Conclusion</h2>
+<p>While Helix might seem limited in terms of customisations compared to other editors, that is not entirely the case. If you wish to put the time and effort into it, you can make Helix completely your own! If I find anything useful that I am working with daily related to the config, I will make sure to update it in the post</p>
+<p>Stay tuned for more.</p>
+
+    </article>
+  </div>
+
+  <div class="share-buttons" aria-label="Share">
+  <span class="share-label">Share</span>
+  <div class="share-links">
+    
+    
+    <a href="https://twitter.com/intent/tweet?text=&amp;url=http%3A%2F%2Flocalhost%3A1313%2Fposts%2Fgeneral%2Fmy_helix_config%2F" target="_blank" rel="noopener noreferrer" class="share-btn share-twitter" aria-label="Share on Twitter">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+    </a>
+    
+    
+    
+    <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A1313%2Fposts%2Fgeneral%2Fmy_helix_config%2F" target="_blank" rel="noopener noreferrer" class="share-btn share-facebook" aria-label="Share on Facebook">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+    </a>
+    
+    
+    
+    <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http%3A%2F%2Flocalhost%3A1313%2Fposts%2Fgeneral%2Fmy_helix_config%2F&amp;title=&amp;summary=My&#43;Helix&#43;Setup&#43;and&#43;Config&#43;Intro&#43;So%2C&#43;my&#43;Helix&#43;setup&#43;is&#43;quite&#43;simple%2C&#43;I&#43;learned&#43;that&#43;there&#43;are&#43;not&#43;too&#43;many&#43;things&#43;%E2%80%A6" target="_blank" rel="noopener noreferrer" class="share-btn share-linkedin" aria-label="Share on LinkedIn">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+    </a>
+    
+    
+    <button class="share-btn share-copy" aria-label="Copy link" data-url="http://localhost:1313/posts/general/my_helix_config/">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg>
+    </button>
+  </div>
+</div>
+
+
+  <nav class="post-nav" aria-label="Post navigation">
+    
+    <a href="/posts/general/my_helix_editor_setup/" class="post-nav-link post-nav-prev">
+      <span class="post-nav-label">&larr; Previous</span>
+      <span class="post-nav-title"></span>
+    </a>
+    
+    
+  </nav>
+</main><footer class="content-footer">
+  <div class="footer-deco" aria-hidden="true">
+    <span></span><span></span><span></span>
+  </div>
+  <div>Powered by Hugo × Styled by Spectra</div>
+  <div class="footer-theme-credit">Theme <a href="https://github.com/JoeYang1412/hugo-theme-spectra" target="_blank" rel="noopener noreferrer">Spectra</a> by <a href="https://github.com/JoeYang1412" target="_blank" rel="noopener noreferrer">JoeYang1412</a></div>
+</footer>
+
+    </div>
+  </div>
+
+  <div class="search-overlay" id="searchOverlay" data-index="/index.json" role="dialog" aria-modal="true" aria-label="Search">
+  <div class="search-container">
+    <div class="search-header">
+      <div class="search-input-wrapper">
+        <svg class="search-input-icon" width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="7.5" cy="7.5" r="5.5"/>
+          <line x1="11.5" y1="11.5" x2="16" y2="16"/>
+        </svg>
+        <input type="text" class="search-input" id="searchInput" placeholder="Search posts..." autocomplete="off">
+      </div>
+      <button class="search-close" id="searchClose" aria-label="Close search">
+        <kbd>ESC</kbd>
+      </button>
+    </div>
+    <div class="search-results" id="searchResults">
+      <div class="search-empty" id="searchEmpty">Type to search posts</div>
+    </div>
+  </div>
+</div>
+
+  
+  <button class="scroll-top-btn" id="scrollTopBtn" aria-label="Scroll to top">
+    <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M9 14V4"/>
+      <path d="M4 8l5-5 5 5"/>
+    </svg>
+  </button>
+  
+
+
+<script defer src="/js/loading.min.acdafeb711925c391663ac7d7dd3074073780c52938f11b6a5abd934f09f70ab.js" integrity="sha256-rNr&#43;txGSXDkWY6x9fdMHQHN4DFKTjxG2pavZNPCfcKs="></script>
+
+
+
+<script defer src="/js/theme-toggle.min.83716daf97a6d2e066062b2a8a71c24335d6114e14607f6be277233a4e8972c7.js" integrity="sha256-g3Ftr5em0uBmBisqinHCQzXWEU4UYH9r4ncjOk6Jcsc="></script>
+
+
+<script defer src="/js/sidebar.min.ade9447b99ee20969a805cba4d890453e168868aaa20ebfbeeb9e2c36440e1ad.js" integrity="sha256-relEe5nuIJaagFy6TYkEU&#43;FohoqqIOv77rniw2RA4a0="></script>
+
+
+
+<script defer src="/js/vendor/anime.umd.min.993e590fb09b6d8179bd481d33af2b799d3f3c6df7c13f454201dd48e8a34a85.js" integrity="sha256-mT5ZD7CbbYF5vUgdM68reZ0/PG33wT9FQgHdSOijSoU="></script>
+
+
+
+<script defer src="/js/scroll-animate.min.81b9b338700570aa84f30017cc3400aee2273cb166313dfe415649d386f1c0b8.js" integrity="sha256-gbmzOHAFcKqE8wAXzDQAruInPLFmMT3&#43;QVZJ04bxwLg="></script>
+
+
+
+
+<script defer src="/js/code-copy.min.cd5af80d55d88d9c5690a379c66973ce65a9b205041bb5873546ffa85151363b.js" integrity="sha256-zVr4DVXYjZxWkKN5xmlzzmWpsgUEG7WHNUb/qFFRNjs="></script>
+
+
+
+
+<script defer src="/js/scroll-top.min.6d14274370fca5085f0922608e7b13287b1456432a14d318ae7cfa629dd7bf62.js" integrity="sha256-bRQnQ3D8pQhfCSJgjnsTKHsUVkMqFNMYrnz6Yp3Xv2I="></script>
+
+
+
+
+<script defer src="/js/vendor/fuse.min.e3621b53cb77b4ec306dec41ed95511e6dd80d17fae5a04f3e346d214b9f8f92.js" integrity="sha256-42IbU8t3tOwwbexB7ZVRHm3YDRf65aBPPjRtIUufj5I="></script>
+
+
+<script defer src="/js/search.min.3ab7012086ba1ead467655a0780904d98645597c703f3e434c892a76d536af2c.js" integrity="sha256-OrcBIIa6Hq1GdlWgeAkE2YZFWXxwPz5DTIkqdtU2ryw="></script>
+
+
+
+
+<script defer src="/js/mouse-glow.min.30a00a148ec52c0495e1e4571821a68df31e15cbb78dc77410e33441648d5868.js" integrity="sha256-MKAKFI7FLASV4eRXGCGmjfMeFcu3jcd0EOM0QWSNWGg="></script>
+
+
+
+<script defer src="/js/smart-back.min.9e55a84c8d3665842b19d95cdd540bfcf9dc1c29bb91c9f9db4a20f57046d2b3.js" integrity="sha256-nlWoTI02ZYQrGdlc3VQL/PncHCm7kcn520og9XBG0rM="></script>
+
+
+<script defer src="/js/banner-fallback.min.b18f78a0d3ec4d1c9511355281e9cb9a7068cfa4e6ed7cf14250e1fc1bed5620.js" integrity="sha256-sY94oNPsTRyVETVSgenLmnBoz6Tm7XzxQlDh/BvtViA="></script>
+
+
+<script defer src="/js/cover-fade.min.06b68cc5a1d3c8e318c3d8d92d91ea4ab01fee5400ed3fe135e1a25dd026b232.js" integrity="sha256-BraMxaHTyOMYw9jZLZHqSrAf7lQA7T/hNeGiXdAmsjI="></script>
+
+
+
+<script defer src="/js/banner-parallax.min.25a246af8b73fbf34af50b5517ab74cf05a9d5fb7a0b2eb62f4df80482a998d5.js" integrity="sha256-JaJGr4tz&#43;/NK9QtVF6t0zwWp1ft6Cy62L034BIKpmNU="></script>
+
+
+
+
+<script defer src="/js/toc.min.fdf9aff368ce6d7bb9eda62ab73d641945a04aac09d0b70a0d961077a72b6572.js" integrity="sha256-/fmv82jObXu57aYqtz1kGUWgSqwJ0LcKDZYQd6crZXI="></script>
+
+
+
+
+<script defer src="/js/details-animate.min.cb571c36481a32e5149b8fbbe4bfc0e4adbcf284f6c1fadb5a5e6134daca6c26.js" integrity="sha256-y1ccNkgaMuUUm4&#43;75L/A5K288oT2wfrbWl5hNNrKbCY="></script>
+
+
+
+
+<script defer src="/js/reading-progress.min.29b8bc004734ac7b77592deb1790562d69ef0110c3e087ccee2c596615cf80f9.js" integrity="sha256-Kbi8AEc0rHt3WS3rF5BWLWnvARDD4IfM7ixZZhXPgPk="></script>
+
+
+
+
+<script defer src="/js/lightbox.min.2c9ba2771822bfc578c9f8106436f2f42dc46e94b362d99b3aab76cb77f41138.js" integrity="sha256-LJuidxgiv8V4yfgQZDby9C3EbpSzYtmbOqt2y3f0ETg="></script>
+
+
+
+
+<script defer src="/js/share-copy.min.3c8baa43857a563eaa255cb5d0aae67b33a0b24edf9a5fd1d249636b821667c4.js" integrity="sha256-PIuqQ4V6Vj6qJVy10KrmezOgsk7fml/R0klja4IWZ8Q="></script>
+
+
+
+
+
+
+</body>
+</html>
