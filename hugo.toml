@@ -101,7 +101,6 @@ theme = 'hugo-theme-spectra'
       description = "LP's personal blog"
       author = 'Lilko Petkov'
       tagline = '// Developer | DevOps | Cloud Engineer'
-      bio = 'Blog posts for new ideas, programming news and concepts, infrastructure and more'
 
       [[languages.en.params.social]]
         name = "GitHub"

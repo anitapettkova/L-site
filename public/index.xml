@@ -34,5 +34,12 @@
 				<guid>http://localhost:1313/posts/programming/zig_and_c_interlop/</guid>
 				<description>&lt;h1 id=&#34;intro&#34;&gt;Intro&lt;/h1&gt;&#xA;&lt;p&gt;Why would someone use C in their project? After all, if you are using a more modern low level language like zig, is it necessary to use the stinky old C?&#xA;The answer might surprise you. Some of the most useful code in the world is still written in C, and the good news is that Zig is fully compatible with it.&#xA;Yes you heard me right, you can integrate most C library in your Zig application without any issues. Let&amp;rsquo;s learn how to do this.&lt;/p&gt;</description>
 			</item>
+			<item>
+				<title>Python Generators and the Yield Key Word</title>
+				<link>http://localhost:1313/posts/programming/python_generators_and_yield/</link>
+				<pubDate>Fri, 18 Sep 2026 00:00:00 +0000</pubDate>
+				<guid>http://localhost:1313/posts/programming/python_generators_and_yield/</guid>
+				<description>&lt;p&gt;On a lot of interviews I have been asked and I have also asked interviewees about their code and why they used or didn&amp;rsquo;t use a generator function on a specific place in their code.&#xA;In more cases than not, they cannot really answer what the generators are, how they work and how the &lt;code&gt;yield&lt;/code&gt; keyword ties to them.&#xA;So let&amp;rsquo;s get started.&lt;/p&gt;&#xA;&lt;h2 id=&#34;what-are-the-generators&#34;&gt;What are the &lt;code&gt;generators&lt;/code&gt;?&lt;/h2&gt;&#xA;&lt;p&gt;So what are the &lt;code&gt;generators&lt;/code&gt; exactly? Well, they are just functions that returns an &lt;code&gt;iterator&lt;/code&gt; object, basically an object which implements the &lt;code&gt;__iter__&lt;/code&gt; and &lt;code&gt;__next__&lt;/code&gt; methods, that allow us to iterate over it. It is that simple. There is one small caveat though, unlike the regular functions that return one result, the generators yield many results whenever called.&lt;/p&gt;</description>
+			</item>
 	</channel>
 </rss>
